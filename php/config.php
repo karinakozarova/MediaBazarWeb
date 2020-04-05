@@ -14,4 +14,3 @@ return $conn;
 } catch (PDOException $e) {
 echo "<br /> connect file " . $e->getMessage();
 }
- ?>
