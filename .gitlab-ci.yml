@@ -1,8 +1,6 @@
-image: ubuntu:18.04
 
 before_script:
-  - apt-get update -qy
-  - apt-get install -y lftp
+  - apk add lftp
 deploy:
     stage: deploy
     only:
