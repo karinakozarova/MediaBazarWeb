@@ -2,7 +2,7 @@
 include 'config.php';
 $Messegealarm = '';
 if ($login == 1) {
-echo " <meta http-equiv='refresh' content='0; url=../html/base.php'>";
+echo " <meta http-equiv='refresh' content='0; url=base.php'>";
 }else{
 
 if (isset($_POST["login_bttn"])) {
@@ -14,7 +14,7 @@ if (isset($_POST["login_bttn"])) {
     Please fill in the empty fields</div>';
   }else{
     session_start();
-    $query = "SELECT * FROM user WHERE username = '$username' AND password = '$password'";
+    $query = "SELECT * FROM user WHERE username = '$username' AND password = '$password' AND account_type = 2";
     $statment = $conn->prepare($query);
     $statment -> execute(
       array(
@@ -27,7 +27,7 @@ if (isset($_POST["login_bttn"])) {
     {
       $_SESSION["username"] = $_POST["username"];
       setcookie('logedin',1,time()+(3600 * 24));
-      header("location:../html/base.php");
+      header("location:base.php");
     }else {
       $Messegealarm = '<div class="alert alert-danger alert-dismissible">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
