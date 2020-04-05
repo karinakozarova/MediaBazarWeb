@@ -1,6 +1,5 @@
-
 before_script:
-  - apk add lftp
+  - choco install lftp --version 4.7.5
 deploy:
     stage: deploy
     only:
