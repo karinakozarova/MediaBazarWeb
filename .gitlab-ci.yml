@@ -1,5 +1,6 @@
-before_script:
-  - choco install lftp --version 4.7.5
+image: ubuntu:18.04
+stages:
+    - deploy
 deploy:
     stage: deploy
     only:
@@ -7,8 +8,6 @@ deploy:
             - master
     tags:
         - deploy
-        
     script:
-    # Sync to FTP
-    # - lftp -e "open ftp.mywebhost.com; user $FTP_USERNAME $FTP_PASSWORD; mirror -X .* -X .*/ --reverse --verbose --delete local-folder/ destination-folder/; bye"
+    - apt-get install lftp
     - lftp -c "set ftp:ssl-allow no; open -u i426146, MediaBazarWeb hera.fhict.nl; mirror -Rev dist/ ./public_html  --ignore-time --parallel=10 --exclude-glob .git* --exclude .git/"
