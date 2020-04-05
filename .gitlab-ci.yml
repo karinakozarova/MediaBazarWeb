@@ -3,9 +3,15 @@ image: ubuntu:18.04
 before_script:
   - apt-get update -qy
   - apt-get install -y lftp
-
-build:
-  script:
+deploy:
+    stage: deploy
+    only:
+        refs:
+            - master
+    tags:
+        - deploy
+        
+    script:
     # Sync to FTP
     # - lftp -e "open ftp.mywebhost.com; user $FTP_USERNAME $FTP_PASSWORD; mirror -X .* -X .*/ --reverse --verbose --delete local-folder/ destination-folder/; bye"
     - lftp -c "set ftp:ssl-allow no; open -u i426146, MediaBazarWeb hera.fhict.nl; mirror -Rev dist/ ./public_html  --ignore-time --parallel=10 --exclude-glob .git* --exclude .git/"
