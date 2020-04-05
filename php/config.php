@@ -1,9 +1,5 @@
 <?php
-
-$server = 'studmysql01.fhict.local';
-$user = 'dbi425113';
-$pass = 'bropro12';
-$db = 'dbi425113';
+Include'credentials.php';
 $login = 0;
 try {
 $conn = new PDO("mysql:host=$server;dbname=$db", "$user", "$pass");
@@ -18,6 +14,4 @@ return $conn;
 } catch (PDOException $e) {
 echo "<br /> connect file " . $e->getMessage();
 }
-
-
  ?>
