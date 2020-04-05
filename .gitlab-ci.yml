@@ -8,5 +8,5 @@ deploy:
     tags:
         - deploy
     script:
-    - apt-get install -y -qq lftp
+    - apk install -y -qq lftp
     - lftp -c "set ftp:ssl-allow no; open -u i426146, MediaBazarWeb hera.fhict.nl; mirror -Rev dist/ ./public_html  --ignore-time --parallel=10 --exclude-glob .git* --exclude .git/"
