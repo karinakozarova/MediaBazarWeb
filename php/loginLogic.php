@@ -1,7 +1,7 @@
 <?php
 include 'config.php';
 session_start();
-if ($login == 1) {
+if (isset($_SESSION["username"])) {
     echo " <meta http-equiv='refresh' content='0; url=../html/base.php'>";
 } else {
     if (isset($_POST["login_bttn"])) {
@@ -24,7 +24,7 @@ if ($login == 1) {
             $count = $statment->rowCount();
             if ($count > 0) {
                 $_SESSION["username"] = $_POST["username"];
-                setcookie('logedin', 1, time() + (3600 * 24));
+                setcookie("logedin", 1, time() + (3600 * 24));
                 header("location:../html/base.php");
             } else {
                 $errorMessageText = 'Wrong credentials';
