@@ -13,16 +13,21 @@ if (isset($_POST["login_bttn"])) {
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     Please fill in the empty fields</div>';
   }else{
-    $selectfdb = mysqli_query($conn,"SELECT * FROM user WHERE username = '$username' AND password = '$password'");
-    $row = mysqli_fetch_array($selectfdb);
-
-    if (!empty($row) && $row["username"] == $username && $row["password"] == $password) {
-      setcookie('Accountid',$row["account_id"],time()+(3600 * 24));
-      setcookie('login',1,time()+(3600 * 24));
-      echo "<meta http-equiv='refresh' content='0; url=../html/base.html'>";
-    }
-    else
+    $query = "SELECT * FROM user WHERE username = '$username' AND password = '$password'";
+    $statment = $conn->prepare($query);
+    $statment -> execute(
+      array(
+        'username' => $username,
+        'password' => $password
+      )
+    );
+    $count = $statment->rowCount();
+    if($count > 0)
     {
+      $_SESSION["username"] = $_POST["username"];
+      setcookie('logedin',1,time()+(3600 * 24));
+      header("location:../html/base.html");
+    }else {
       $Messegealarm = '<div class="alert alert-danger alert-dismissible">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       Wrong credentials</div>';

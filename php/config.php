@@ -1,17 +1,23 @@
 <?php
+
 $server = 'localhost';
-$user = 'root';
-$pass = '';
-$db = 'system';
+$user = 'dbi425113';
+$pass = 'bropro12';
+$db = 'dbi425113';
 
-$conn = mysqli_connect($server,$user,$pass) or die("error");
+try {
+$conn = new PDO("mysql:host=$server;dbname=$db", "$user", "$pass");
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$selectdb = mysqli_select_db($conn,$db) or die("error");
-
-if (isset($_COOKIE["login"])) {
-  $login = $_COOKIE["login"];
+if (isset($_COOKIE["logedin"])) {
+  $login = 1;
 }else{
   $login = 0;
 }
+return $conn;
+} catch (PDOException $e) {
+echo "<br /> connect file " . $e->getMessage();
+}
+
 
  ?>
