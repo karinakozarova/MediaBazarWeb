@@ -35,3 +35,11 @@ p {
     -moz-border-radius: 8px;
     border-radius: 8px;
 }
+
+.small-logo{
+  max-height: 6rem;
+}
+
+.container-text{
+  max-height: 3rem;
+}

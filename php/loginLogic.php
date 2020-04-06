@@ -1,17 +1,19 @@
 <?php
 include 'constants.php';
 include 'config.php';
+
 if(session_status() == PHP_SESSION_NONE)
 {
   session_start();
 }
+
 if (isset($_SESSION["username"])) {
     header("Location: ../html/base.php");
 } else {
     if (isset($_POST["login_bttn"])) {
-        $errorMessageText = '';
         $username = $_POST['username'];
         $password = $_POST['password'];
+
         if (empty($username) || empty($password)) {
             $errorMessageText = 'Please fill in the empty fields';
         } else {

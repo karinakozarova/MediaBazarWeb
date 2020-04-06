@@ -14,7 +14,6 @@ include '../php/loginLogic.php';
 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <!-- jQuery Boostrap alerts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
@@ -24,7 +23,7 @@ include '../php/loginLogic.php';
         <br>
         <h3> Welcome </h3>
         <?php
-        if (isset($_POST["login_bttn"]) && !empty($errorMessageText)) { //echo $Messegealarm;
+        if (isset($_POST["login_bttn"]) && !empty($errorMessageText)) {
             ?>
             <div class="alert alert-danger alert-dismissible">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -33,7 +32,7 @@ include '../php/loginLogic.php';
         <form method="post">
             <input type="text" id="login" name="username" placeholder="Username">
             <input type="text" id="password" name="password" placeholder="Password">
-            <input type="submit" name="login_bttn" style="width: 85%" value="Log In">
+            <input class="submit-button" type="submit" name="login_bttn" value="Log In">
         </form>
         <div id="formFooter">
             <a class="underlineHover" href="#">Forgot Password?</a>
