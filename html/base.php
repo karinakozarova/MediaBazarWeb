@@ -47,7 +47,7 @@ session_start();
                 <li><a href="#">Inbox <span class="badge">42</span></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">Your profile <span class="caret"></span></a>
+                       aria-expanded="false"><?= strtoupper($_SESSION["username"]) ?> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Change profile information</a></li>
                         <li><a href="#">Change password</a></li>
@@ -59,7 +59,6 @@ session_start();
         </div>
     </div>
 </nav>
-<h1> <?= var_dump($_SESSION["username"]) ?></h1>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
