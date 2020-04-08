@@ -1,61 +1,40 @@
 body {
     background-color: #26bc8b;
 }
-
 .my-group {
     position: absolute;
     margin-top: 50px;
     margin-left: 30%;
 }
-
 #firstName {
     width: 300px;
 }
-
 #lastName {
     width: 300px;
-
 }
-
 #phoneNumber {
     width: 300px;
-
 }
-
 #email {
     width: 300px;
-
 }
-
 #dateOfBirth {
-
     width: 300px;
-
 }
-
 #dob-lbl {
     position: relative;
-
 }
-
 #street {
     width: 300px;
-
 }
-
 #postcode {
     width: 300px;
-
 }
-
 #region {
     width: 300px;
-
 }
-
 #country {
     width: 300px;
-
 }
 #btn-changeInfo{
     width:300px;
@@ -75,26 +54,22 @@ body {
     margin-left: 30px;
     margin-bottom: 20px;
 }
-
 .profile-picture {
     position: absolute;
     width: 150px;
     height: 150px;
     margin-top: 10px;
 }
-
 .change-pwd-lbl {
     margin-top: 20px;
     margin-bottom: 50px;
     margin-left: 60px;
 }
-
 .password {
     position: absolute;
     left: 40%;
     top: 100px;
 }
-
 #currentPassword {
     width: 300px;
 }
@@ -102,20 +77,16 @@ body {
 #newPassword {
     width: 300px;
 }
-
 #repeatPassword {
     width: 300px;
 }
-
 #btn-change-pwd {
     width: 300px;
     margin-top: 30px;
 }
-
 #Username {
     margin-left: 20px;
 }
-
 @media only screen and (max-width: 1100px) {
     .password {
         left: 30%;
@@ -124,30 +95,24 @@ body {
         margin-left: 32%;
     }
 }
-
 @media only screen and (max-width: 1024px) {
     .profile {
          margin-left: 10%;
      }
 }
-
 @media only screen and (max-width: 680px) {
     .my-group {
         margin-top: 150px;
         margin-left: 20%;
     }
-
     .profile-picture {
         display: none;
     }
-
     .profile {
         margin-top: 40px;
         margin-left: 35%;
     }
-
     .password {
         left: 20%;
     }
-
 }
