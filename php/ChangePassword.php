@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="../css/ChangeProfileInfo.css">
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <script type="text/javascript">var val = "<?= isset($_REQUEST['saved']) ? "true"  : "false"?>";</script>
+        <script type="text/javascript">var incorrect = "<?= isset($_REQUEST['incorrect']) ? "true"  : "false"?>";</script>
+    <script src="../js/ChangeProfileInfo.js"></script>
 </head>
 <body class="changeProfile">
 <?php include('navbar.php'); ?>
@@ -24,7 +27,6 @@
                     <input type="password" class="form-control" id="currentPassword" placeholder="Current Password" name="currentPassword" required>
                 </div>
             </div>
-                    <?php include('errors.php'); ?>
             <div class="row">
                 <div class="col">
                     <label for="newPassword">New Password</label>
@@ -42,6 +44,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="../js/ChangeProfileInfo.js"><script>
 </body>
 </html>

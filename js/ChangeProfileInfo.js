@@ -4,17 +4,6 @@ function validateNewPasswordForm() {
     const repeatPassword = $('#repeatPassword').val();
     var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
     var passwordResult = passwordRegex.test(password);
-    /*var currentPass = "<?= $password ?>;
-console.log(currentPass);
-    if(currentPasswordField!= currentPass){
-        swal({
-            title: "Incorrect input!",
-            text: "Please enter the correct current password!",
-            icon: "warning",
-            button: true,
-            dangerMode: true,
-        });
-    }*/
     if (password != repeatPassword) {
         swal({
             title: "Incorrect input!",
@@ -72,7 +61,6 @@ function ValidateEmail(inputText)
     }
 }
 
-var issent = false;
 
 function validateChangedInformation() {
     const firstName = $('#firstName').val();
@@ -128,15 +116,23 @@ function validateChangedInformation() {
         });
         return false;
     }
-    issent = true;
     return true;
 }
 
 $( window ).on( "load", function() {
-    validateChangedInformation();
-    console.log(issent);
-    if(issent) {
+    if(val=="true") {
         swal("Done!", "Your information has been changed!", "success");
     }
 })
 
+$( window ).on( "load", function() {
+    if(incorrect=="true") {
+        swal({
+            title: "Incorrect input!",
+            text: "The current password does not match.",
+            icon: "warning",
+            button: true,
+            dangerMode: true,
+        });
+    }
+})
