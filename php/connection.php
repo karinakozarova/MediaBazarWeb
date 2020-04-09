@@ -1,12 +1,19 @@
 <?php
-include 'config.php';
+//include 'config.php';
 
     if(session_status() == PHP_SESSION_NONE)
     {
     session_start();
     }
-    $username = $_SESSION["username"];
+    $server = 'studmysql01.fhict.local';
+        $user = 'dbi425113';
+        $pass = 'bropro12';
+        $db = 'dbi425113';
+        $username = 'someone';
+    $_SESSION["username"] = $username;
     $errors = array();
+
+$conn = mysqli_connect("$server", "$db", "$pass", "$user");
 
 $sql1 = "SELECT  p.id, p.first_name, p.last_name, p.date_of_birth, p.street, p.postcode, p.region, p.country, p.phone_number, p.email  FROM person AS p INNER JOIN user AS u ON p.id=u.account_id WHERE u.username='$username'";
              $emailResult = $conn-> query($sql1);
@@ -49,6 +56,8 @@ $sql1 = "SELECT  p.id, p.first_name, p.last_name, p.date_of_birth, p.street, p.p
                  $_SESSION["country"] = $country;
                  $_SESSION["phoneNumber"] = $phoneNumber;
                  $_SESSION["email"] = $email;
+                 header("Location " . "/ChangeProfileInformation.php");
+                 exit;
             }
         }
 
@@ -62,6 +71,7 @@ $sql1 = "SELECT  p.id, p.first_name, p.last_name, p.date_of_birth, p.street, p.p
                             if ($typeResult-> num_rows > 0){
                                   while ($row = $typeResult-> fetch_assoc()){
                                            $password= $row["password"];
+                                           $_SESSION["password"] = $password;
                                   }
                             }
             if ($newPassword != $passwordRepeat)
@@ -77,7 +87,7 @@ $sql1 = "SELECT  p.id, p.first_name, p.last_name, p.date_of_birth, p.street, p.p
                 $newPasswordC = $newPassword;
                 $sqlUpdate = "UPDATE user SET password='$newPasswordC' WHERE username='$username'";
                 mysqli_query($conn, $sqlUpdate);
-                array_push($errors, $newPassword, $username);
+                array_push($errors);
                 header('location: ChangePassword.php');
             }
     }
