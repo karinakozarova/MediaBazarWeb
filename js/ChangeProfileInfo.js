@@ -41,15 +41,12 @@ function phonenumber(phone) {
     }
     return true;
 }
-function ValidateEmail(inputText)
-{
+
+function ValidateEmail(inputText) {
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if(inputText.match(mailformat))
-    {
+    if (inputText.match(mailformat)) {
         return true;
-    }
-    else
-    {
+    } else {
         swal({
             title: "Incorrect input!",
             text: "You have entered an invalid email address!",
@@ -66,12 +63,12 @@ function validateChangedInformation() {
     const firstName = $('#firstName').val();
     const lastName = $('#lastName').val();
     const phoneNumber = $('#phoneNumber').val();
-    const email= $('#email').val();
+    const email = $('#email').val();
     const region = $('#region').val();
     const country = $('#country').val();
     var letters = /^[A-Za-z]+$/;
     if (!firstName.match(letters)) {
-            swal({
+        swal({
             title: "Incorrect input!",
             text: "First name must have alphabet characters only",
             icon: "warning",
@@ -80,6 +77,7 @@ function validateChangedInformation() {
         });
         return false;
     }
+
     if (!lastName.match(letters)) {
         swal({
             title: "Incorrect input!",
@@ -90,12 +88,15 @@ function validateChangedInformation() {
         });
         return false;
     }
+
     if (!phonenumber(phoneNumber)) {
         return false;
     }
+
     if (!ValidateEmail(email)) {
         return false;
     }
+
     if (!region.match(letters)) {
         swal({
             title: "Incorrect input!",
@@ -106,6 +107,7 @@ function validateChangedInformation() {
         });
         return false;
     }
+
     if (!country.match(letters)) {
         swal({
             title: "Incorrect input!",
@@ -119,14 +121,12 @@ function validateChangedInformation() {
     return true;
 }
 
-$( window ).on( "load", function() {
-    if(val=="true") {
+$(window).on("load", function () {
+    if (val == "true") {
         swal("Done!", "Your information has been changed!", "success");
     }
-})
 
-$( window ).on( "load", function() {
-    if(incorrect=="true") {
+    if (incorrect == "true") {
         swal({
             title: "Incorrect input!",
             text: "The current password does not match.",
@@ -134,5 +134,5 @@ $( window ).on( "load", function() {
             button: true,
             dangerMode: true,
         });
-    }
 })
+

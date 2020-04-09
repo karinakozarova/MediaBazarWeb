@@ -8,50 +8,6 @@ body {
     margin-left: 30%;
 }
 
-#firstName {
-    width: 300px;
-}
-
-#lastName {
-    width: 300px;
-}
-
-#phoneNumber {
-    width: 300px;
-}
-
-#email {
-    width: 300px;
-}
-
-#dateOfBirth {
-    width: 300px;
-}
-
-#dob-lbl {
-    position: relative;
-}
-
-#street {
-    width: 300px;
-}
-
-#postcode {
-    width: 300px;
-}
-
-#region {
-    width: 300px;
-}
-
-#country {
-    width: 300px;
-}
-
-#btn-changeInfo{
-    width:300px;
-}
-
 .profile {
     position: absolute;
     margin-top: 100px;
@@ -87,23 +43,6 @@ body {
     position: absolute;
     left: 40%;
     top: 100px;
-}
-
-#currentPassword {
-    width: 300px;
-}
-
-#newPassword {
-    width: 300px;
-}
-
-#repeatPassword {
-    width: 300px;
-}
-
-#btn-change-pwd {
-    width: 300px;
-    margin-top: 30px;
 }
 
 #Username {
