@@ -1,30 +1,7 @@
 body {
-    font: 20px Montserrat, sans-serif;
-    line-height: 1.8;
-    color: #2f2f2f;
+    font-family:  Montserrat, sans-serif;
 }
 
-p {
-    font-size: 16px;
+.centered{
+    text-align: center;
 }
-
-.margin {
-    margin-bottom: 45px;
-}
-
-.bg-green {
-    background-color: #1abc9c; /* Green */
-    color: #ffffff;
-}
-
-.bg-gray {
-    background-color: #2f2f2f; /* Black Gray */
-    color: #fff;
-}
-
-.container-fluid {
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-
-
