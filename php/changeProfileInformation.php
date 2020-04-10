@@ -14,9 +14,9 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <script type="text/javascript">
-            var val = "<?= isset($_REQUEST['saved']) ? "true"  : "false"?>";
+            var isSaved = "<?= isset($_REQUEST['saved']) ? "true"  : "false"?>";
         </script>
-        <script src="../js/ChangeProfileInfo.js"></script>
+        <script src="../js/changeProfileInfojs"></script>
     </head>
     <body class="changeProfile">
         <?php include('navbar.php'); ?>
@@ -24,20 +24,19 @@
                 <h3 id="Username"><?= $username?></h3>
                 <img class="profile-picture" src="../resources/profileman.jpg">
             </div>
+            <div class="container">
             <form class="profile-form" method="post" onsubmit="return validateChangedInformation()" style="width:450px">
                 <div class="my-group">
                     <div class="form-group">
-                        <div class="col-10">
                             <h4 class="change-info-lbl">Change Profile Information</h4>
-                        </div>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-6">
                                 <div class="form-group">
                                     <label for="firstName">First name</label>
                                     <input type="text" class="form-control" id="firstName" placeholder="First name" value="<?= $firstName?>" name="firstName">
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-2">
                                 <div class="form-group">
                                     <label for="lastName">Last name</label>
                                     <input type="text" class="form-control" id="lastName" placeholder="Last name" value="<?= $lastName?>" name="lastName">
@@ -54,7 +53,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="text" class="form-control" id="email" placeholder="Email" value="<?= $Email?>" name="Email">
+                                    <input type="text" class="form-control" id="email" placeholder="Email" value="<?= $email?>" name="email">
                                 </div>
                             </div>
                         </div>
@@ -102,6 +101,7 @@
                     </div>
                 </div>
             </form>
+            </div>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
             <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

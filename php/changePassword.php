@@ -19,7 +19,7 @@
         <script type="text/javascript">
             var incorrect = "<?= isset($_REQUEST['incorrect']) ? "true"  : "false"?>";
         </script>
-        <script src="../js/ChangeProfileInfo.js"></script>
+        <script src="../js/changeProfileInfojs"></script>
     </head>
     <body class="changeProfile">
         <?php include('navbar.php'); ?>

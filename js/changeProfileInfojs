@@ -123,7 +123,7 @@ function validateChangedInformation() {
 }
 
 $(window).on("load", function () {
-    if (val == "true") {
+    if (isSaved == "true") {
         swal("Done!", "Your information has been changed!", "success");
     }
 

@@ -1,70 +1,64 @@
 <?php
 include 'config.php';
+session_start();
+$username = $_SESSION["username"];
 
-$sql1 = "SELECT  p.id, p.first_name, p.last_name, p.date_of_birth, p.street, p.postcode, p.region, p.country, p.phone_number, p.email  FROM person AS p INNER JOIN user AS u ON p.id=u.account_id WHERE u.username='$username'";
-             $showResult = $conn-> query($sql1);
-             if ($showResult-> num_rows > 0){
-                while ($row = $showResult-> fetch_assoc()){
-                    $person_id = $row["id"];
-                    $firstName  = $row["first_name"];
-                    $lastName = $row["last_name"];
-                    $dateOfBirth = date("Y-m-d\TH:i", strtotime($row["date_of_birth"]));
-                    $street = $row["street"];
-                    $postcode = $row["postcode"];
-                    $region = $row["region"];
-                    $country = $row["country"];
-                    $phoneNumber = $row["phone_number"];
-                    $Email = $row["email"];
-                }
-             }
+$sqlShowInfo = "SELECT  p.id, p.first_name, p.last_name, p.date_of_birth, p.street, p.postcode, p.region, p.country, p.phone_number, p.email  FROM person AS p INNER JOIN user AS u ON p.id=u.account_id WHERE u.username='$username'";
+$showResult = $conn->prepare($sqlShowInfo);
+$showResult->execute();
+$row = $showResult->fetch(PDO::FETCH_ASSOC);
 
-        if (isset($_POST['changeInfo'])){
-            $firstName = $_POST["firstName"];
-            $lastName = $_POST["lastName"];
-            $date =date_create($_POST["dateOfBirth"]);
-            $dateOfBirth = date_format($date, "Y-m-d H:i:s");
-            $street = $_POST["street"];
-            $postcode = $_POST["postcode"];
-            $region = $_POST["region"];
-            $country = $_POST["country"];
-            $phoneNumber = $_POST["phoneNumber"];
-            $email = $_POST['Email'];
-            $sql = "UPDATE person SET first_name='$firstName' , last_name='$lastName',date_of_birth='$dateOfBirth', street='$street', postcode='$postcode', region='$region', country='$country', phone_number='$phoneNumber', email='$email' WHERE id='$person_id'";
-            mysqli_query($conn, $sql);
-            header("Location:" . "ChangeProfileInformation.php?saved=true");
-            exit;
-        }
+$person_id = $row["id"];
+$firstName = $row["first_name"];
+$lastName = $row["last_name"];
+$dateOfBirth = date("Y-m-d\TH:i", strtotime($row["date_of_birth"]));
+$street = $row["street"];
+$postcode = $row["postcode"];
+$region = $row["region"];
+$country = $row["country"];
+$phoneNumber = $row["phone_number"];
+$email = $row["email"];
 
-  if (isset($_POST['changePassword'])) {
-            $currentPwd = $_POST['currentPassword'];
-            $newPassword = $_POST['newPassword'];
-            $passwordRepeat = $_POST['repeatPassword'];
-            $sql = "SELECT password FROM user WHERE username='$username'";
-                            $typeResult = $conn-> query($sql);
-                            if ($typeResult-> num_rows > 0){
-                                  while ($row = $typeResult-> fetch_assoc()){
-                                           $password= $row["password"];
-                                  }
-                            }
-            if ($newPassword != $passwordRepeat)
-            {
-                return;
-            }
-            else if($currentPwd != $password)
-            {
-                array_push($errors, "Please enter the correct current password!");
+if (isset($_POST['changeInfo'])) {
+    $firstName = $_POST["firstName"];
+    $lastName = $_POST["lastName"];
+    $date = date_create($_POST["dateOfBirth"]);
+    $dateOfBirth = date_format($date, "Y-m-d H:i:s");
+    $street = $_POST["street"];
+    $postcode = $_POST["postcode"];
+    $region = $_POST["region"];
+    $country = $_POST["country"];
+    $phoneNumber = $_POST["phoneNumber"];
+    $email = $_POST['email'];
 
-                header("Location:" . "ChangePassword.php?incorrect=true");
-                exit;
-            }
-            else if (count($errors) == 0)
-            {
-                $newPasswordC = $newPassword;
-                $sqlUpdate = "UPDATE user SET password='$newPasswordC' WHERE username='$username'";
-                mysqli_query($conn, $sqlUpdate);
-                header("Location:" . "ChangePassword.php?saved=true");
-                array_push($errors);
-                exit;
-            }
+    $sqlUpdateInfo = "UPDATE person SET first_name='$firstName', last_name='$lastName',date_of_birth='$dateOfBirth', street='$street', postcode='$postcode', region='$region', country='$country', phone_number='$phoneNumber', email='$email' WHERE id='$person_id'";
+    $updateResult = $conn->prepare($sqlUpdateInfo);
+    $updateResult->execute([$firstName, $lastName, $dateOfBirth, $street, $postcode, $region, $country, $phoneNumber, $email, $person_id]);
+
+    header("Location:" . "ChangeProfileInformation.php?saved=true");
+    exit;
+}
+
+if (isset($_POST['changePassword'])) {
+    $currentPwd = $_POST['currentPassword'];
+    $newPassword = $_POST['newPassword'];
+    $passwordRepeat = $_POST['repeatPassword'];
+    $sqlGetPassword = "SELECT password FROM user WHERE username='$username'";
+    $showPassword = $conn->prepare($sqlGetPassword);
+    $showPassword->execute();
+    $row = $showPassword->fetch(PDO::FETCH_ASSOC);
+    $count = $showPassword->rowCount();
+    $password=null;
+    if ($count > 0) {
+        $password = $row["password"];
+    } else if ($currentPwd != $password) {
+        header("Location:" . "ChangePassword.php?incorrect=true");
+        exit;
+    } else {
+        $sqlUpdatePassword = $conn->prepare("UPDATE user SET password=\"$newPassword\" WHERE username=\"$username\"");
+        $sqlUpdatePassword->execute();
+
+        header("Location:" . "ChangePassword.php?saved=true");
+        exit;
     }
-?>
+}
