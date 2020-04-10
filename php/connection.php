@@ -1,6 +1,8 @@
 <?php
 include 'config.php';
 session_start();
+date_default_timezone_set('UTC');
+
 $username = $_SESSION["username"];
 
 $sqlShowInfo = "SELECT  p.id, p.first_name, p.last_name, p.date_of_birth, p.street, p.postcode, p.region, p.country, p.phone_number, p.email  FROM person AS p INNER JOIN user AS u ON p.id=u.account_id WHERE u.username='$username'";
