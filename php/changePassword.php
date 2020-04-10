@@ -16,16 +16,16 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <script type="text/javascript">
-        var val = "<?= isset($_REQUEST['saved']) ? "true" : "false"?>";
+        var isSaved = "<?= isset($_REQUEST['isSaved']) ? "true" : "false"?>";
         var incorrect = "<?= isset($_REQUEST['incorrect']) ? "true" : "false"?>";
     </script>
-    <script src="../js/ChangeProfileInfo.js"></script>
+    <script src="../js/changeProfileInfo.js"></script>
 </head>
 <?php
 include('../html/navbar.php');
 ?>
 
-<body class="green">
+<body class="green changeProfile">
 <br> <br>
 <div class="container">
     <div class="row">

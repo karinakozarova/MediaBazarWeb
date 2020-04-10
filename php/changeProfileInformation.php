@@ -14,9 +14,9 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <script type="text/javascript">
-            var isSaved = "<?= isset($_REQUEST['saved']) ? "true"  : "false"?>";
+            var isSaved = "<?= isset($_REQUEST['isSaved']) ? "true"  : "false"?>";
         </script>
-        <script src="../js/changeProfileInfojs"></script>
+        <script src="../js/changeProfileInfo.js"></script>
     </head>
     <body class="changeProfile">
         <?php include('navbar.php'); ?>

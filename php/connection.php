@@ -2,7 +2,6 @@
 include 'config.php';
 session_start();
 date_default_timezone_set('UTC');
-
 $username = $_SESSION["username"];
 
 $sqlShowInfo = "SELECT  p.id, p.first_name, p.last_name, p.date_of_birth, p.street, p.postcode, p.region, p.country, p.phone_number, p.email  FROM person AS p INNER JOIN user AS u ON p.id=u.account_id WHERE u.username='$username'";
@@ -37,11 +36,12 @@ if (isset($_POST['changeInfo'])) {
     $updateResult = $conn->prepare($sqlUpdateInfo);
     $updateResult->execute([$firstName, $lastName, $dateOfBirth, $street, $postcode, $region, $country, $phoneNumber, $email, $person_id]);
 
-    header("Location:" . "ChangeProfileInformation.php?saved=true");
+    header("Location:" . "changeProfileInformation.php?isSaved=true");
     exit;
 }
 
 if (isset($_POST['changePassword'])) {
+
     $currentPwd = $_POST['currentPassword'];
     $newPassword = $_POST['newPassword'];
     $passwordRepeat = $_POST['repeatPassword'];
@@ -49,18 +49,15 @@ if (isset($_POST['changePassword'])) {
     $showPassword = $conn->prepare($sqlGetPassword);
     $showPassword->execute();
     $row = $showPassword->fetch(PDO::FETCH_ASSOC);
-    $count = $showPassword->rowCount();
-    $password=null;
-    if ($count > 0) {
         $password = $row["password"];
-    } else if ($currentPwd != $password) {
-        header("Location:" . "ChangePassword.php?incorrect=true");
+    if ($currentPwd != $password) {
+        header("Location:" . "changePassword.php?incorrect=true");
         exit;
     } else {
         $sqlUpdatePassword = $conn->prepare("UPDATE user SET password=\"$newPassword\" WHERE username=\"$username\"");
         $sqlUpdatePassword->execute();
 
-        header("Location:" . "ChangePassword.php?saved=true");
+        header("Location:" . "changePassword.php?isSaved=true");
         exit;
     }
 }
