@@ -2,7 +2,8 @@ function validateNewPasswordForm() {
     const currentPasswordField = $('currentPassword').val();
     const password = $('#newPassword').val();
     const repeatPassword = $('#repeatPassword').val();
-    var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+
     var passwordResult = passwordRegex.test(password);
     if (password != repeatPassword) {
         swal({
@@ -27,8 +28,8 @@ function validateNewPasswordForm() {
     }
 }
 
-function phonenumber(phone) {
-    var intRegex = /[0-9 -()+]+$/;
+function validatePhoneNumber(phone) {
+    const intRegex = /[0-9 -()+]+$/;
     if ((phone.length < 6) || (!intRegex.test(phone))) {
         swal({
             title: "Incorrect input!",
@@ -42,9 +43,9 @@ function phonenumber(phone) {
     return true;
 }
 
-function ValidateEmail(inputText) {
-    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (inputText.match(mailformat)) {
+function validateEmail(email) {
+    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (email.match(mailformat)) {
         return true;
     } else {
         swal({
@@ -58,7 +59,6 @@ function ValidateEmail(inputText) {
     }
 }
 
-
 function validateChangedInformation() {
     const firstName = $('#firstName').val();
     const lastName = $('#lastName').val();
@@ -66,7 +66,8 @@ function validateChangedInformation() {
     const email = $('#email').val();
     const region = $('#region').val();
     const country = $('#country').val();
-    var letters = /^[A-Za-z]+$/;
+    const letters = /^[A-Za-z]+$/;
+
     if (!firstName.match(letters)) {
         swal({
             title: "Incorrect input!",
@@ -89,11 +90,11 @@ function validateChangedInformation() {
         return false;
     }
 
-    if (!phonenumber(phoneNumber)) {
+    if (!validatePhoneNumber(phoneNumber)) {
         return false;
     }
 
-    if (!ValidateEmail(email)) {
+    if (!validateEmail(email)) {
         return false;
     }
 
@@ -134,5 +135,6 @@ $(window).on("load", function () {
             button: true,
             dangerMode: true,
         });
+    }
 })
 

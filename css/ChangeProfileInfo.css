@@ -6,22 +6,24 @@ body {
     position: absolute;
     margin-top: 50px;
     margin-left: 30%;
+    width: 600px;
 }
 
-.profile {
+.username-picture {
     position: absolute;
     margin-top: 100px;
     margin-left: 10%;
 }
 
-.profile-form h4{
+.profile-form h4 {
     text-align: center;
-    margin-right:20px;
-    padding-top:20px;
-    padding-bottom:20px;
+    margin-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .change-info-lbl {
+
     margin-left: 30px;
     margin-bottom: 20px;
 }
@@ -41,8 +43,14 @@ body {
 
 .password {
     position: absolute;
-    left: 40%;
+    left: 37%;
     top: 100px;
+}
+.password-group{
+    width:300px;
+}
+#btn-change-pwd {
+    margin-top: 30px;
 }
 
 #Username {
@@ -50,7 +58,6 @@ body {
 }
 
 @media only screen and (max-width: 1100px) {
-
     .password {
         left: 30%;
     }
@@ -61,15 +68,19 @@ body {
 }
 
 @media only screen and (max-width: 1024px) {
-
-    .profile {
-         margin-left: 10%;
-     }
-
+    .username-picture {
+        margin-left: 10%;
+    }
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 991px) {
+    .my-group {
+        width: 300px;
+        margin-left: 40%;
+    }
+}
 
+@media only screen and (max-width: 620px) {
     .my-group {
         margin-top: 150px;
         margin-left: 20%;
@@ -79,7 +90,7 @@ body {
         display: none;
     }
 
-    .profile {
+    .username-picture {
         margin-top: 40px;
         margin-left: 35%;
     }
@@ -87,5 +98,4 @@ body {
     .password {
         left: 20%;
     }
-
 }
