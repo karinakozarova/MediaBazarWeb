@@ -1,100 +1,82 @@
 body {
-    background-color: #26bc8b;
+    background-color: #26bc8b
 }
 
 .my-group {
     position: absolute;
     margin-top: 50px;
-    margin-left: 30%;
-    /*width: 600px;*/
+    margin-left: 30%
 }
 
 .username-picture {
     position: absolute;
     margin-top: 100px;
-    margin-left: 10%;
+    margin-left: 10%
 }
 
 .profile-form h4 {
     text-align: center;
     margin-right: 20px;
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 20px
 }
 
 .change-info-lbl {
-
     margin-left: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 20px
 }
 
 .profile-picture {
     position: absolute;
     width: 150px;
     height: 150px;
-    margin-top: 10px;
+    margin-top: 10px
 }
 
 .change-pwd-lbl {
     margin-top: 20px;
     margin-bottom: 50px;
-    margin-left: 60px;
+    margin-left: 60px
 }
 
-.password {
-    position: absolute;
-    left: 37%;
-    top: 100px;
-}
-.password-group{
-    width:300px;
-}
 #btn-change-pwd {
-    margin-top: 30px;
+    margin-top: 30px
 }
 
 #Username {
-    margin-left: 20px;
+    margin-left: 20px
 }
 
 @media only screen and (max-width: 1100px) {
-    .password {
-        left: 30%;
-    }
-
     .my-group {
-        margin-left: 32%;
+        margin-left: 32%
     }
 }
 
 @media only screen and (max-width: 1024px) {
     .username-picture {
-        margin-left: 10%;
+        margin-left: 10%
     }
 }
 
 @media only screen and (max-width: 991px) {
     .my-group {
-        margin-left: 40%;
+        margin-left: 40%
     }
 }
 
 @media only screen and (max-width: 620px) {
     .my-group {
         margin-top: 150px;
-        margin-left: 20%;
+        margin-left: 20%
     }
 
     .profile-picture {
-        display: none;
+        display: none
     }
 
     .username-picture {
         margin-top: 40px;
-        margin-left: 35%;
-    }
-
-    .password {
-        left: 20%;
+        margin-left: 35%
     }
 }
