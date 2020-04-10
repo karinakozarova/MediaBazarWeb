@@ -19,7 +19,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">Schedule <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Change workdays</a></li>
+                        <li><a href="editSchdule.php">Change workdays</a></li>
                         <li><a href="schedule.php">Get weekly schedule</a></li>
                     </ul>
                 </li>
