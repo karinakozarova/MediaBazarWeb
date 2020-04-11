@@ -1,29 +1,15 @@
-body {
-    background-color: #26bc8b
-}
-
-.my-group {
-    position: absolute;
-    margin-top: 50px;
-    margin-left: 30%
+#Username{
+    margin-left:20px;
 }
 
 .username-picture {
     position: absolute;
-    margin-top: 100px;
-    margin-left: 10%
+    margin-top: 0;
+    margin-right: 50px;
 }
 
-.profile-form h4 {
-    text-align: center;
-    margin-right: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px
-}
-
-.change-info-lbl {
-    margin-left: 30px;
-    margin-bottom: 20px
+#btn-change-pwd {
+    margin-top: 25px;
 }
 
 .profile-picture {
@@ -33,50 +19,34 @@ body {
     margin-top: 10px
 }
 
-.change-pwd-lbl {
-    margin-top: 20px;
-    margin-bottom: 50px;
-    margin-left: 60px
-}
-
-#btn-change-pwd {
-    margin-top: 30px
-}
-
-#Username {
-    margin-left: 20px
-}
-
 @media only screen and (max-width: 1100px) {
     .my-group {
-        margin-left: 32%
-    }
-}
-
-@media only screen and (max-width: 1024px) {
-    .username-picture {
-        margin-left: 10%
+        margin-right:10%;
     }
 }
 
 @media only screen and (max-width: 991px) {
     .my-group {
-        margin-left: 40%
-    }
-}
-
-@media only screen and (max-width: 620px) {
-    .my-group {
-        margin-top: 150px;
-        margin-left: 20%
-    }
-
-    .profile-picture {
-        display: none
+        margin-top:300px;
+        margin-left:200px;
     }
 
     .username-picture {
-        margin-top: 40px;
-        margin-left: 35%
+        margin-left:100px;
+    }
+
+    h4{
+        margin-right:260px;
+    }
+
+    .changeInfoLbl{
+        margin-left:10px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .my-group {
+        margin-top:300px;
+        margin-left:0;
     }
 }

@@ -50,6 +50,7 @@ if (isset($_POST['changePassword'])) {
     $showPassword->execute();
     $row = $showPassword->fetch(PDO::FETCH_ASSOC);
         $password = $row["password"];
+
     if ($currentPwd != $password) {
         header("Location:" . "changePassword.php?incorrect=true");
         exit;

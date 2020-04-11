@@ -1,4 +1,4 @@
-<?php include('../php/connection.php');?>
+<?php include('../php/changeInfoConnection.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title> ChangePassword </title>
+    <title> changePassword </title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/changePassword.css">
@@ -24,7 +24,6 @@
 <?php
 include('../html/navbar.php');
 ?>
-
 <body class="green changeProfile">
 <br> <br>
 <div class="container">
@@ -55,10 +54,8 @@ include('../html/navbar.php');
         </form>
     </div>
 </div>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
 </body>
 </html>
