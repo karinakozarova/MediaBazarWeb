@@ -1,8 +1,12 @@
+const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+const intRegex = /[0-9 -()+]+$/;
+const letters = /^[A-Za-z]+$/;
+
 function validateNewPasswordForm() {
     const currentPasswordField = $('currentPassword').val();
     const password = $('#newPassword').val();
     const repeatPassword = $('#repeatPassword').val();
-    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
 
     var passwordResult = passwordRegex.test(password);
     if (password != repeatPassword) {
@@ -29,7 +33,6 @@ function validateNewPasswordForm() {
 }
 
 function validatePhoneNumber(phone) {
-    const intRegex = /[0-9 -()+]+$/;
     if ((phone.length < 6) || (!intRegex.test(phone))) {
         swal({
             title: "Incorrect input!",
@@ -44,7 +47,6 @@ function validatePhoneNumber(phone) {
 }
 
 function validateEmail(email) {
-    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (email.match(mailformat)) {
         return true;
     } else {
@@ -66,7 +68,6 @@ function validateChangedInformation() {
     const email = $('#email').val();
     const region = $('#region').val();
     const country = $('#country').val();
-    const letters = /^[A-Za-z]+$/;
 
     if (!firstName.match(letters)) {
         swal({

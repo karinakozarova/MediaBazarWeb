@@ -1,4 +1,4 @@
-<?php include('../php/changeInfoConnection.php'); ?>
+<?php include('changeInfoConnection.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>changeProfileInformation</title>
+    <title>Change Profile Information</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/changeProfileInfo.css">
@@ -30,7 +30,7 @@
     </div>
     <div class="row">
         <form method="post" onsubmit="return validateChangedInformation()">
-            <div class="my-group form-group row col-md-offset-4 col-lg-offset-3 col-lg-6 col-xl-6">
+            <div class="changeInfoForm form-group row col-md-offset-4 col-lg-offset-3 col-lg-6 col-xl-6">
                 <div class="row">
                     <div class="form-group">
                         <h4 class="changeInfoLbl centered">Change Profile Information</h4>
@@ -72,8 +72,7 @@
                     <div class="col-sm-7 col-md-6">
                         <div class="form-group">
                             <label id="dob-lbl" for="dateOfBirth">Date of birth</label>
-                            <input type="datetime-local" class="form-control" id="dateOfBirth" name="dateOfBirth"
-                                   max="3000-12-31" value="<?= $dateOfBirth ?>">
+                            <input type="datetime-local" class="form-control" id="dateOfBirth" name="dateOfBirth" value="<?= $dateOfBirth ?>">
                         </div>
                     </div>
                     <div class="col-sm-7 col-md-6">

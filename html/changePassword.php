@@ -1,4 +1,4 @@
-<?php include('../php/changeInfoConnection.php'); ?>
+<?php include('changeInfoConnection.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title> changePassword </title>
+    <title> Change Password </title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/changePassword.css">

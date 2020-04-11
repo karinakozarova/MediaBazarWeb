@@ -1,11 +1,11 @@
 <?php
-include 'config.php';
+include '../php/config.php';
 session_start();
 date_default_timezone_set('UTC');
 $username = $_SESSION["username"];
 
-$sqlShowInfo = "SELECT  p.id, p.first_name, p.last_name, p.date_of_birth, p.street, p.postcode, p.region, p.country, p.phone_number, p.email  FROM person AS p INNER JOIN user AS u ON p.id=u.account_id WHERE u.username='$username'";
-$showResult = $conn->prepare($sqlShowInfo);
+$selectInfoQuery = "SELECT  p.id, p.first_name, p.last_name, p.date_of_birth, p.street, p.postcode, p.region, p.country, p.phone_number, p.email  FROM person AS p INNER JOIN user AS u ON p.id=u.account_id WHERE u.username='$username'";
+$showResult = $conn->prepare($selectInfoQuery);
 $showResult->execute();
 $row = $showResult->fetch(PDO::FETCH_ASSOC);
 
@@ -32,8 +32,8 @@ if (isset($_POST['changeInfo'])) {
     $phoneNumber = $_POST["phoneNumber"];
     $email = $_POST['email'];
 
-    $sqlUpdateInfo = "UPDATE person SET first_name='$firstName', last_name='$lastName',date_of_birth='$dateOfBirth', street='$street', postcode='$postcode', region='$region', country='$country', phone_number='$phoneNumber', email='$email' WHERE id='$person_id'";
-    $updateResult = $conn->prepare($sqlUpdateInfo);
+    $updateInfoQuery = "UPDATE person SET first_name='$firstName', last_name='$lastName',date_of_birth='$dateOfBirth', street='$street', postcode='$postcode', region='$region', country='$country', phone_number='$phoneNumber', email='$email' WHERE id='$person_id'";
+    $updateResult = $conn->prepare($updateInfoQuery);
     $updateResult->execute([$firstName, $lastName, $dateOfBirth, $street, $postcode, $region, $country, $phoneNumber, $email, $person_id]);
 
     header("Location:" . "changeProfileInformation.php?isSaved=true");
@@ -41,12 +41,11 @@ if (isset($_POST['changeInfo'])) {
 }
 
 if (isset($_POST['changePassword'])) {
-
     $currentPwd = $_POST['currentPassword'];
     $newPassword = $_POST['newPassword'];
     $passwordRepeat = $_POST['repeatPassword'];
-    $sqlGetPassword = "SELECT password FROM user WHERE username='$username'";
-    $showPassword = $conn->prepare($sqlGetPassword);
+    $selectPasswordQuery = "SELECT password FROM user WHERE username='$username'";
+    $showPassword = $conn->prepare($selectPasswordQuery);
     $showPassword->execute();
     $row = $showPassword->fetch(PDO::FETCH_ASSOC);
         $password = $row["password"];
@@ -55,8 +54,8 @@ if (isset($_POST['changePassword'])) {
         header("Location:" . "changePassword.php?incorrect=true");
         exit;
     } else {
-        $sqlUpdatePassword = $conn->prepare("UPDATE user SET password=\"$newPassword\" WHERE username=\"$username\"");
-        $sqlUpdatePassword->execute();
+        $updatePasswordQuery = $conn->prepare("UPDATE user SET password=\"$newPassword\" WHERE username=\"$username\"");
+        $updatePasswordQuery->execute();
 
         header("Location:" . "changePassword.php?isSaved=true");
         exit;
