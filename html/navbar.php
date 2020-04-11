@@ -31,8 +31,8 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false"><?= strtoupper($_SESSION["username"]) ?> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Change profile information</a></li>
-                        <li><a href="#">Change password</a></li>
+                        <li><a href="changeProfileInformation.php">Change profile information</a></li>
+                        <li><a href="changePassword.php">Change password</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="../php/signout.php">Sign out </a></li>
                     </ul>
