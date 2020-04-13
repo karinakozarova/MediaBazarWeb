@@ -18,6 +18,7 @@ session_start();
         <link rel="stylesheet" href="../libs/jquery-sked-tape-master/docs/jquery.skedTape.css">
         <script src="../libs/jquery-sked-tape-master/src/jquery.skedTape.js"></script>
     <?php } ?>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 </head>
