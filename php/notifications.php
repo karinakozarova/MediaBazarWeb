@@ -1,5 +1,9 @@
 <?php
+include('../php/config.php');
 $notifications = [];
+if(isset($_REQUEST['show'])){
+    session_start();
+}
 
 $user = $_SESSION['username'];
 $user_id_query = $conn->prepare("SELECT account_id FROM user WHERE username=\"$user\"");
@@ -21,4 +25,8 @@ foreach ($elements as $element) {
     $notification->date = $element["datetime"];
 
     array_push($notifications, $notification);
+}
+
+if(isset($_REQUEST['show'])){
+    echo json_encode($notifications);
 }
