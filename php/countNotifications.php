@@ -1,6 +1,6 @@
 <?php
-include '../php/config.php';
-include '../php/constants.php';
+include('../php/config.php');
+include('../php/constants.php');
 session_start();
 $user = $_SESSION['username'];
 $user_id_query = $conn->prepare("SELECT account_id FROM user WHERE username=\"$user\"");
