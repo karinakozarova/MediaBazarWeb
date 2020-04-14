@@ -6,7 +6,20 @@ $user_id_query = $conn->prepare("SELECT account_id FROM user WHERE username=\"$u
 $user_id_query->execute();
 $user_id = $user_id_query->fetchColumn();
 
-$query = $conn->prepare("SELECT week_day_id as day, shift FROM employee_working_days WHERE employee_id=\"$user_id\"");
+$dateQuery = $conn->prepare("SELECT max(assigned_date) AS maxDate,min(assigned_date) AS minDate FROM employee_working_days WHERE employee_id =\"$user_id\"");
+$dateQuery->execute();
+$fetchedDates = $dateQuery->fetchAll(PDO::FETCH_ASSOC);
+
+  include 'shiftCreationDates.php';
+
+  if($newWeek == true)
+  {
+    $chosenWeek = $maxdate;
+  } else {
+    $chosenWeek = $mindate;
+  }
+
+$query = $conn->prepare("SELECT week_day_id as day, shift FROM employee_working_days WHERE employee_id=\"$user_id\" AND assigned_date = \"$chosenWeek\"");
 $query->execute();
 $elements = $query->fetchAll();
 

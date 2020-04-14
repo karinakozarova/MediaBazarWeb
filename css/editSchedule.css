@@ -1,0 +1,23 @@
+.cover{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+td, th {
+  width: 14rem;
+  height: 4rem;
+  border: 2px solid #ccc;
+  text-align: center;
+}
+
+table {
+  font-size: 15px;
+  position: relative;
+  text-align: center;
+}
+
+th {
+  background: lightgrey;
+  border-color: white;
+}

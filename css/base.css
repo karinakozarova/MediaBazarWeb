@@ -5,36 +5,3 @@ body {
 .centered{
     text-align: center;
 }
-
-.cover{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-}
-
-td, th {
-  width: 14rem;
-  height: 4rem;
-  border: 2px solid #ccc;
-  text-align: center;
-}
-
-table {
-  font-size: 15px;
-  position: relative;
-  text-align: center;
-}
-
-th {
-  background: lightgrey;
-  border-color: white;
-}
-
-td:hover{
-  background: lightgreen;
-}
-
-td.selected{
-  background: green;
-}
