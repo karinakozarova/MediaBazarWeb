@@ -2,22 +2,38 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
 }
 
 td, th {
   width: 14rem;
-  height: 4rem;
-  border: 2px solid #ccc;
+  height: 5rem;
+  border: 2px solid #DCDCDC;
   text-align: center;
+}
+
+.theader {
+  text-align: center;
+  font-style: normal;
+  background: #F0F0F0;
+  font-size: 15px;
 }
 
 table {
   font-size: 15px;
+  font-style: normal;
   position: relative;
-  text-align: center;
 }
 
-th {
-  background: lightgrey;
-  border-color: white;
+input[type=submit] {
+    background-color: #F0F0F0;
+    border: none;
+    color: Black;
+    padding: 15px;
+    text-align: center;
+    display: inline-block;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin: 5px 20px 40px 20px;
+    width: 25rem;
 }

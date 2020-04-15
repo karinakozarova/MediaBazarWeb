@@ -22,19 +22,19 @@ include('../php/preSelectCheckbox.php');
     <div class = "cover">
       <form method="post">
         <div  class="table-responsive">
-          <table class = table-bordered id="table">
+          <table id="table">
             <tr>
-              <th></th>
-              <th>Monday</th>
-              <th>Tuesday</th>
-              <th>Wednesday</th>
-              <th>Thursday</th>
-              <th>Friday</th>
-              <th>Saturday</th>
-              <th>Sunday</th>
+              <th class="theader">#</th>
+              <th class="theader">Monday</th>
+              <th class="theader">Tuesday</th>
+              <th class="theader">Wednesday</th>
+              <th class="theader">Thursday</th>
+              <th class="theader">Friday</th>
+              <th class="theader">Saturday</th>
+              <th class="theader">Sunday</th>
             </tr>
             <tr>
-              <th>Morning</th>
+              <th class="theader">Morning</th>
               <td><input type="checkbox" name = "mon-morning" <?php if(isset($monmorning))echo $monmorning ?> >Mon - morning</td>
               <td><input type="checkbox" name = "tue-morning" <?php if(isset($tuemorning))echo $tuemorning ?> >Tue - Morning</td>
               <td><input type="checkbox" name = "wed-morning" <?php if(isset($wedmorning))echo $wedmorning ?> >Wed - Morning</td>
@@ -44,7 +44,7 @@ include('../php/preSelectCheckbox.php');
               <td><input type="checkbox" name = "sun-morning" <?php if(isset($sunmorning))echo $sunmorning ?> >Sun - Morning</td>
             </tr>
             <tr>
-              <th>Afternoon</th>
+              <th class="theader">Afternoon</th>
               <td><input type="checkbox" name = "mon-afternoon" <?php if(isset($monafternoon))echo $monafternoon ?> >Mon - Afternoon</td>
               <td><input type="checkbox" name = "tue-afternoon" <?php if(isset($tueafternoon))echo $tueafternoon ?> >Tue - Afternoon</td>
               <td><input type="checkbox" name = "wed-afternoon" <?php if(isset($wedafternoon))echo $wedafternoon ?> >Wed - Afternoon</td>
@@ -54,7 +54,7 @@ include('../php/preSelectCheckbox.php');
               <td><input type="checkbox" name = "sun-afternoon" <?php if(isset($sunafternoon))echo $sunafternoon ?> >Sun - Afternoon</td>
             </tr>
             <tr>
-              <th>Evening</th>
+              <th class="theader">Evening</th>
               <td><input type="checkbox" name = "mon-evening" <?php if(isset($monevening))echo $monevening ?> >Mon - Evening</td>
               <td><input type="checkbox" name = "tue-evening" <?php if(isset($tueevening))echo $tueevening ?> >Tue - Evening</td>
               <td><input type="checkbox" name = "wed-evening" <?php if(isset($wedevening))echo $wedevening ?> >Wed - Evening</td>
@@ -65,7 +65,7 @@ include('../php/preSelectCheckbox.php');
             </tr>
           </table>
         </div>
-        <p><input type="submit" class = "buttonEdit" name = "assignShifts_bttn" value="Assign shift"/></p>
+        <p><input type="submit" class = "buttonEdit" name = "assignShifts_bttn" value="Assign next week shift"/></p>
       </form>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
