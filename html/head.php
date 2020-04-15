@@ -10,10 +10,9 @@ session_start();
 
     <title> <?= $title ?> </title>
 
-    <?php if(isset($addEditSchedule)) { ?>
-<link rel="stylesheet" href="../css/editSchedule.css">
+    <?php if (isset($addEditSchedule)) { ?>
+      <link rel="stylesheet" href="../css/editSchedule.css">
     <?php } ?>
-
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/base.css">

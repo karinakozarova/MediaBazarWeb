@@ -1,4 +1,8 @@
 <?php
+$dateQuery = $conn->prepare("SELECT max(assigned_date) AS maxDate,min(assigned_date) AS minDate FROM employee_working_days WHERE employee_id =\"$user_id\"");
+$dateQuery->execute();
+$fetchedDates = $dateQuery->fetchAll(PDO::FETCH_ASSOC);
+
 date_default_timezone_set("Europe/Amsterdam");
 $currentDate = date("Y-m-d");
 $newWeek = false;

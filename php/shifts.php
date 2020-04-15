@@ -6,10 +6,6 @@ $user_id_query = $conn->prepare("SELECT account_id FROM user WHERE username=\"$u
 $user_id_query->execute();
 $user_id = $user_id_query->fetchColumn();
 
-$dateQuery = $conn->prepare("SELECT max(assigned_date) AS maxDate,min(assigned_date) AS minDate FROM employee_working_days WHERE employee_id =\"$user_id\"");
-$dateQuery->execute();
-$fetchedDates = $dateQuery->fetchAll(PDO::FETCH_ASSOC);
-
   include 'shiftCreationDates.php';
 
   if($newWeek == true)
