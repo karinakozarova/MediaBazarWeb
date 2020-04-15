@@ -28,6 +28,7 @@ if (isset($_SESSION["username"])) {
             $count = $statment->rowCount();
             if ($count > 0) {
                 $_SESSION["username"] = $_POST["username"];
+                $_SESSION["loginTime"] = time();
                 header("Location: ../html/base.php");
             } else {
                 $errorMessageText = 'Wrong credentials';
