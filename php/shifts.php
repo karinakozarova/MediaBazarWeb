@@ -1,4 +1,5 @@
 <?php
+
 $days = [];
 
 $user = $_SESSION['username'];
