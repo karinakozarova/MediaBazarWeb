@@ -7,22 +7,31 @@
 
 td, th {
   width: 14rem;
-  height: 5rem;
-  border: 2px solid #DCDCDC;
+  height: 3.5rem;
+  border: 3px solid #DCDCDC;
   text-align: center;
 }
 
-.theader {
+td:hover{
+  background: #C4FFC9;
+}
+
+.tHeader {
   text-align: center;
   font-style: normal;
   background: #F0F0F0;
-  font-size: 15px;
+  font-size: 13px;
 }
 
-table {
-  font-size: 15px;
-  font-style: normal;
-  position: relative;
+.greenBackground{
+background-color: #7DCF83;
+border: 2px solid #D5D5D5;
+}
+
+label{
+  display: ;
+  width: 100%;
+  height: 100%;
 }
 
 input[type=submit] {
