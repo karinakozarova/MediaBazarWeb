@@ -8,8 +8,7 @@
         <div class="card-header padded">
             <h5 class="m-0 font-weight-bold text-primary">Latest notification</h5>
         </div>
-        <div class="card-body">
-            <p> This section will be populated with the latest notification</p>
+        <div class="card-body notification">
         </div>
     </div>
 
@@ -92,5 +91,41 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="../js/earningsChart.js"></script>
+<script>
+    $(document).ready(function () {
+        var notificationsId = [];
+        var notifications;
+        setInterval(function () {
+            $.ajax({
+                url: '../php/latestnotification.php?show',
+                type: 'get',
+                data: {},
+                success: function (response) {
+                    notifications = JSON.parse(response);
+                }
+            });
+            var isIncluded = notificationsId.includes(notifications.notificationId);
+
+            if(notifications.notificationId == null){
+                $(".notification").html("NO NOTIFICATIONS AVAILABLE");
+            } else if (!isIncluded) {
+                $(".notification").html('<form method="post"><input type="hidden" name="notificationID" value="' + notifications.notificationId + '"><button type="button" name="markAsRead" value="' + notifications.notificationId + '" class="close">Mark as read</button></form><p>' + notifications.message + '</p><hr> <h6 class="mb-0"><b> Created by: </b> ' + notifications.creatorFirstName + ' ' + notifications.creatorLastName + '</h6><h6 class="mb-0"><b>Date:</b> ' + notifications.date + '</h6> ');
+                notificationsId.push(notifications.notificationId);
+            }
+            $(".close").click(function () {
+                var id = $(this).val();
+                var idClass = "." + id;
+                $.ajax({
+                    url: '../php/markAsRead.php',
+                    type: 'post',
+                    data: {"id": id},
+                    success: function (response) {
+                        $(".notification").html("NO NOTIFICATIONS AVAILABLE");
+                    }
+                });
+            });
+        }, 100)
+    });
+</script>
 </body>
 </html>
