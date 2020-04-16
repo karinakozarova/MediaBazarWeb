@@ -1,5 +1,4 @@
 <?php
-include 'shiftCreationDates.php';
 
 $days = [];
 
@@ -7,6 +6,8 @@ $user = $_SESSION['username'];
 $user_id_query = $conn->prepare("SELECT account_id FROM user WHERE username=\"$user\"");
 $user_id_query->execute();
 $user_id = $user_id_query->fetchColumn();
+
+include 'shiftCreationDates.php';
 
 if ($newWeek == true) {
     $chosenWeek = $maxdate;
