@@ -4,4 +4,8 @@ body {
 
 .centered{
     text-align: center;
-  }
+}
+
+.green {
+    background-color: #26bc8b
+}

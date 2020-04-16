@@ -30,6 +30,6 @@ if (isset($_POST["assignShifts_bttn"])){
       header('Location: ../html/schedule.php');
     }
     } else {
-      $errorMessageText = "Schdule already created for next week";
+      $errorMessageText = "Schedule already created for next week";
     }
   }

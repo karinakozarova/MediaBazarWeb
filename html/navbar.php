@@ -26,13 +26,14 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Inbox <span class="badge">42</span></a></li>
+                <li><a href="../html/inbox.php">Inbox <span class="badge" id="notificationNumber"></span></a></li>
+                <script type="text/javascript" src="../js/updateNotificationsCount.js">0</script>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false"><?= strtoupper($_SESSION["username"]) ?> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Change profile information</a></li>
-                        <li><a href="#">Change password</a></li>
+                        <li><a href="changeProfileInformation.php">Change profile information</a></li>
+                        <li><a href="changePassword.php">Change password</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="../php/signout.php">Sign out </a></li>
                     </ul>
