@@ -1,0 +1,48 @@
+.cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+td, th {
+  width: 14rem;
+  height: 3.5rem;
+  border: 3px solid #DCDCDC;
+  text-align: center;
+}
+
+td:hover{
+  background: #C4FFC9;
+}
+
+.tHeader {
+  text-align: center;
+  font-style: normal;
+  background: #F0F0F0;
+  font-size: 13px;
+}
+
+.greenBackground{
+background-color: #7DCF83;
+border: 2px solid #D5D5D5;
+}
+
+label{
+  display: ;
+  width: 100%;
+  height: 100%;
+}
+
+input[type=submit] {
+    background-color: #F0F0F0;
+    border: none;
+    color: Black;
+    padding: 15px;
+    text-align: center;
+    display: inline-block;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin: 5px 20px 40px 20px;
+    width: 25rem;
+}
