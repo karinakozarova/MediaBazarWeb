@@ -33,7 +33,7 @@ include('../php/preSelectCheckbox.php');
               <th class="tHeader">Sunday</th>
             </tr>
             <tr>
-              <th class="theader">Morning</th>
+              <th class="tHeader">Morning</th>
               <td><label><input type="checkbox" name = "mon-morning" <?php if(isset($monmorning))echo $monmorning ?> ></label></td>
               <td><label><input type="checkbox" name = "tue-morning" <?php if(isset($tuemorning))echo $tuemorning ?> ></label></td>
               <td><label><input type="checkbox" name = "wed-morning" <?php if(isset($wedmorning))echo $wedmorning ?> ></label></td>
