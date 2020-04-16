@@ -1,6 +1,13 @@
 <?php
 session_start();
+if (isset($_SESSION["username"]) && (time() - $_SESSION["loginTime"] > 1800)) {
+    session_unset();
+    session_destroy();
+    header('Location: ../php/signout.php');
+}
+$_SESSION["loginTime"] = time();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
