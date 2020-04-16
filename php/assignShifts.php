@@ -5,11 +5,10 @@ $user_id_query->execute();
 $user_id = $user_id_query->fetchColumn();
 
 if (isset($_POST["assignShifts_bttn"])){
-
   include 'shiftCreationDates.php';
 
   if($newWeek == true){
-    include 'schdCheckbox.php';
+    include 'scheduleCheckboxes.php';
     $countSelectedshifts = count($assignDays);
 
     if($countSelectedshifts < 1){
@@ -27,7 +26,7 @@ if (isset($_POST["assignShifts_bttn"])){
         $query = $conn->prepare($assignSql);
         $query->execute();
       }
-      header('Location: ../html/schedule.php');
+      header('Location: ../html/scheduleCheckboxes.php');
     }
     } else {
       $errorMessageText = "Schedule already created for next week";

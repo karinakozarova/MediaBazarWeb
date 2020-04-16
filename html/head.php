@@ -18,8 +18,8 @@ $_SESSION["loginTime"] = time();
     <title> <?= $title ?> </title>
 
     <?php if (isset($addEditSchedule)) { ?>
-      <link rel="stylesheet" href="../css/editSchedule.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="../css/editSchedule.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <?php } ?>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
