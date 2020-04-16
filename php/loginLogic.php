@@ -8,7 +8,7 @@ if(session_status() == PHP_SESSION_NONE)
 }
 
 if (isset($_SESSION["username"])) {
-    header("Location: ../html/base.php");
+    header("Location: ../html/dashboard.php");
 } else {
     if (isset($_POST["login_bttn"])) {
         $username = $_POST['username'];
@@ -29,7 +29,7 @@ if (isset($_SESSION["username"])) {
             if ($count > 0) {
                 $_SESSION["username"] = $_POST["username"];
                 $_SESSION["loginTime"] = time();
-                header("Location: ../html/base.php");
+                header("Location: ../html/dashboard.php");
             } else {
                 $errorMessageText = 'Wrong credentials';
             }

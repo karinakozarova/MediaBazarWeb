@@ -12,7 +12,7 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="#">Dashboard</a></li>
+                <li><a href="dashboard.php">Dashboard</a></li>
                 <li><a href="#">Contracts</a></li>
                 <li><a href="#">Payslips</a></li>
                 <li class="dropdown">
