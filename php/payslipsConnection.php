@@ -6,114 +6,110 @@ $getHourlyWageQuery = $conn->prepare("SELECT hourly_wage FROM employee_details W
 $getHourlyWageQuery->execute();
 $hourlyWage = $getHourlyWageQuery->fetchColumn();
 
-$hoursCovered = count($days) * 4;
+$shiftCost = $hourlyWage * $SHIFT_DURATION;
+$hoursCovered = count($days) * $SHIFT_DURATION;
 $income = $hoursCovered * $hourlyWage;
 
-foreach ($days as $shift) {
-    switch ($shift->location) {
+foreach ($days as $day) {
+   $shift = $day->shift;
+   $day = $day->location;
+    switch ($day) {
         case 0:
-            if ($shift->shift == 'morning') {
-                $MondayM = '9:00-13:00';
-            } else if ($shift->shift == 'afternoon') {
-                $MondayA = '14:00-18:00';
-            } else if ($shift->shift == 'evening') {
-                $MondayE = '14:00-18:00';
+            if ($shift == $MORNING) {
+                $mondayMorning = $MORNING_SHIFT;
+            } else if ($shift == $AFTERNOON) {
+                $mondayAfternoon = $AFTERNOON_SHIFT;
+            } else if ($shift == $EVENING) {
+                $mondayEvening = $EVENING_SHIFT;
             }
-            $MondayWage += $hourlyWage;
+            $mondayWage += $shiftCost;
             break;
-
         case 1:
-
-            if ($shift->shift == 'morning') {
-                $TuesdayM = '9:00-13:00';
+            if ($shift == $MORNING) {
+                $tuesdayMorning = $MORNING_SHIFT;
             }
-            if ($shift->shift == 'afternoon') {
-                $TuesdayA = '14:00-18:00';
+            if ($shift == $AFTERNOON) {
+                $tuesdayAfternoon = $AFTERNOON_SHIFT;
             }
-            if ($shift->shift == 'evening') {
-                $TuesdayE = '14:00-18:00';
+            if ($shift == $EVENING) {
+                $tuesdayEvening = $EVENING_SHIFT;
             }
-            $TuesdayWage += $hourlyWage;
+            $tuesdayWage += $shiftCost;
             break;
-
         case 2:
-            if ($shift->shift == 'morning') {
-                $WednesdayM = '9:00-13:00';
+            if ($shift == $MORNING) {
+                $wednesdayMorning = $MORNING_SHIFT;
             }
-            if ($shift->shift == 'afternoon') {
-                $WednesdayA = '14:00-18:00';
+            if ($shift == $AFTERNOON) {
+                $wednesdayAfternoon = $AFTERNOON_SHIFT;
             }
-            if ($shift->shift == 'evening') {
-                $WednesdayE = '14:00-18:00';
+            if ($shift == $EVENING) {
+                $wednesdayEvening = $EVENING_SHIFT;
             }
-            $WednesdayWage += $hourlyWage;
+            $wednesdayWage += $shiftCost;
             break;
-
         case 3:
-            if ($shift->shift == 'morning') {
-                $ThursdayM = '9:00-13:00';
+            if ($shift == $MORNING) {
+                $thursdayMorning = $MORNING_SHIFT;
             }
-            if ($shift->shift == 'afternoon') {
-                $ThursdayA = '14:00-18:00';
+            if ($shift == $AFTERNOON) {
+                $thursdayAfternoon = $AFTERNOON_SHIFT;
             }
-            if ($shift->shift == 'evening') {
-                $ThursdayE = '14:00-18:00';
+            if ($shift == $EVENING) {
+                $thursdayEvening = $EVENING_SHIFT;
             }
-            $ThursdayWage += $hourlyWage;
+            $thursdayWage += $shiftCost;
             break;
-
         case 4:
-            if ($shift->shift == 'morning') {
-                $FridayM = '9:00-13:00';
+            if ($shift == $MORNING) {
+                $fridayMorning = $MORNING_SHIFT;
             }
-            if ($shift->shift == 'afternoon') {
-                $FridayA = '14:00-18:00';
+            if ($shift == $AFTERNOON) {
+                $fridayAfternoon = $AFTERNOON_SHIFT;
             }
-            if ($shift->shift == 'evening') {
-                $FridayE = '14:00-18:00';
+            if ($shift == $EVENING) {
+                $fridayEvening = $EVENING_SHIFT;
             }
-            $FridayWage += $hourlyWage;
+            $fridayWage += $shiftCost;
             break;
-
         case 5:
-            if ($shift->shift == 'morning') {
-                $SaturdayM = '9:00-13:00';
+            if ($shift == $MORNING) {
+                $saturdayMorning = $MORNING_SHIFT;
             }
-            if ($shift->shift == 'afternoon') {
-                $SaturdayA = '14:00-18:00';
+            if ($shift == $AFTERNOON) {
+                $saturdayAfternoon = $AFTERNOON_SHIFT;
             }
-            if ($shift->shift == 'evening') {
-                $SaturdayE = '14:00-18:00';
+            if ($shift == $EVENING) {
+                $saturdayEvening = $EVENING_SHIFT;
             }
-            $SaturdayWage += $hourlyWage;
+            $saturdayWage += $shiftCost;
             break;
-
         case 6:
-            if ($shift->shift == 'morning') {
-                $SundayM = '9:00-13:00';
+            if ($shift == $MORNING) {
+                $sundayMorning = $MORNING_SHIFT;
             }
-            if ($shift->shift == 'afternoon') {
-                $SundayA = '14:00-18:00';
+            if ($shift == $AFTERNOON) {
+                $sundayAfternoon = $AFTERNOON_SHIFT;
             }
-            if ($shift->shift == 'evening') {
-                $SundayE = '14:00-18:00';
+            if ($shift == $EVENING) {
+                $sundayEvening = $EVENING_SHIFT;
             }
-            $SundayWage += $hourlyWage;
+            $sundayWage += $shiftCost;
             break;
     }
 }
 
 $date = date("Y-m-d");
-$ts = strtotime($date);
-$dow = date('w', $ts);
-$offset = $dow - 1;
+$timeSet = strtotime($date);
+$dateOfTheWeek = date('w', $timeSet);
+$offset = $dateOfTheWeek - 1;
 
 if ($offset < 0) {
     $offset = 6;
 }
 
-$ts = $ts - $offset * 86400;
+$timeSet = $timeSet - $offset * $INTERVAL_BETWEEN_DAYS;
 
-for ($i = 0; $i < 7; $i++, $ts += 86400) {
-    array_push($weekdayDates, date("d/m/Y", $ts));
+for ($i = 0; $i < $NUMBER_OF_WEEKDAYS; $i++, $timeSet += $INTERVAL_BETWEEN_DAYS) {
+    array_push($weekdayDates, date("d/m/Y", $timeSet));
 }

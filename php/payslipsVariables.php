@@ -1,40 +1,52 @@
 <?php
+
+$NUMBER_OF_WEEKDAYS = 7;
+$INTERVAL_BETWEEN_DAYS = 86400;
+$SHIFT_DURATION = 4;
+$MORNING_SHIFT = '9:00-14:00';
+$AFTERNOON_SHIFT = '14:00 - 19:00';
+$EVENING_SHIFT = '19:00 - 23:00';
+
+$MORNING = 'morning';
+$AFTERNOON = 'afternoon';
+$EVENING = 'evening';
+
 $days = [];
 $weekdayDates = [];
 $countShifts = 0;
 $weekdayShifts = [];
 
-$MondayWage = 0;
-$MondayM = '-';
-$MondayA = '-';
-$MondayE = '-';
+$mondayWage = 0;
+$mondayMorning = '-';
+$mondayAfternoon = '-';
+$mondayEvening = '-';
 
-$TuesdayWage = 0;
-$TuesdayM = '-';
-$TuesdayA = '-';
-$TuesdayE = '-';
+$tuesdayWage = 0;
+$tuesdayMorning = '-';
+$tuesdayAfternoon = '-';
+$tuesdayEvening = '-';
 
-$WednesdayWage = 0;
-$WednesdayM = '-';
-$WednesdayA = '-';
-$WednesdayE = '-';
+$wednesdayWage = 0;
+$wednesdayMorning = '-';
+$wednesdayAfternoon = '-';
+$wednesdayEvening = '-';
 
-$ThursdayWage = 0;
-$ThursdayM = '-';
-$ThursdayA = '-';
-$ThursdayE = '-';
+$thursdayWage = 0;
+$thursdayMorning = '-';
+$thursdayAfternoon = '-';
+$thursdayEvening = '-';
 
-$FridayWage = 0;
-$FridayM = '-';
-$FridayA = '-';
-$FridayE = '-';
+$fridayWage = 0;
+$fridayMorning = '-';
+$fridayAfternoon = '-';
+$fridayEvening = '-';
 
-$SaturdayWage = 0;
-$SaturdayM = '-';
-$SaturdayA = '-';
-$SaturdayE = '-';
+$saturdayWage = 0;
+$saturdayMorning = '-';
+$saturdayAfternoon = '-';
+$saturdayEvening = '-';
 
-$SundayWage = 0;
-$SundayM = '-';
-$SundayA = '-';
-$SundayE = '-';
+$sundayWage = 0;
+$sundayMorning = '-';
+$sundayAfternoon = '-';
+$sundayEvening = '-';

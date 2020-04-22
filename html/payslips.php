@@ -7,10 +7,10 @@ include '../php/payslipsConnection.php';
 <body>
 <?php include('navbar.php'); ?>
 <link rel="stylesheet" href="../css/payslips.css">
-<div class="payslips-container container-fluid">
+<div class="week-container container-fluid">
     <div class="row">
         <div class="col">
-            <div class="card shadow mb-4">
+            <div class="card shadow">
                 <div class="card-header py-3 flex justify-content-between">
                     <h5 class="m-0 font-weight-bold text-info">Weekdays</h5>
                 </div>
@@ -23,10 +23,10 @@ include '../php/payslipsConnection.php';
                                         <div class="col mr-2">
                                             <h6 class="font-weight-bold text-info mb-1 centered">Monday</h6>
                                             <h6 class="font-weight-bold text-info mb-1 centered"><?= $weekdayDates[0] ?></h6>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $MondayM ?></div>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $MondayA ?></div>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $MondayE ?></div>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $MondayWage ?>€</div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $mondayMorning ?></div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $mondayAfternoon ?></div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $mondayEvening ?></div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $mondayWage ?>€</div>
                                         </div>
                                     </div>
                                 </div>
@@ -39,10 +39,10 @@ include '../php/payslipsConnection.php';
                                         <div class="col mr-2">
                                             <h6 class="font-weight-bold text-info mb-1 centered">Tuesday</h6>
                                             <h6 class="font-weight-bold text-info mb-1 centered"><?= $weekdayDates[1] ?></h6>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $TuesdayM ?></div>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $TuesdayA ?></div>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $TuesdayE ?></div>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $TuesdayWage ?>€</div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $tuesdayMorning ?></div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $tuesdayAfternoon ?></div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $tuesdayEvening ?></div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $tuesdayWage ?>€</div>
                                         </div>
                                     </div>
                                 </div>
@@ -55,10 +55,10 @@ include '../php/payslipsConnection.php';
                                         <div class="col mr-2">
                                             <h6 class="font-weight-bold text-info mb-1 centered">Wednesday</h6>
                                             <h6 class="font-weight-bold text-info mb-1 centered"><?= $weekdayDates[2] ?></h6>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $WednesdayM ?></div>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $WednesdayA ?></div>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $WednesdayE ?></div>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $WednesdayWage ?>€</div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $wednesdayMorning ?></div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $wednesdayAfternoon ?></div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $wednesdayEvening ?></div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $wednesdayWage ?>€</div>
                                         </div>
                                     </div>
                                 </div>
@@ -71,10 +71,10 @@ include '../php/payslipsConnection.php';
                                         <div class="col mr-2">
                                             <h6 class="font-weight-bold text-info mb-1 centered">Thursday</h6>
                                             <h6 class="font-weight-bold text-info mb-1 centered"><?= $weekdayDates[3] ?></h6>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $ThursdayM ?></div>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $ThursdayA ?></div>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $ThursdayE ?></div>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $ThursdayWage ?>€</div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $thursdayMorning ?></div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $thursdayAfternoon ?></div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $thursdayEvening ?></div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $thursdayWage ?>€</div>
                                         </div>
                                     </div>
                                 </div>
@@ -87,10 +87,10 @@ include '../php/payslipsConnection.php';
                                         <div class="col mr-2">
                                             <h6 class="font-weight-bold text-info mb-1 centered">Friday</h6>
                                             <h6 class="font-weight-bold text-info mb-1 centered"><?= $weekdayDates[4] ?></h6>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $FridayM ?></div>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $FridayA ?></div>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $FridayE ?></div>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $FridayWage ?>€</div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $fridayMorning ?></div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $fridayAfternoon ?></div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $fridayEvening  ?></div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $fridayWage ?>€</div>
                                         </div>
                                     </div>
                                 </div>
@@ -103,10 +103,10 @@ include '../php/payslipsConnection.php';
                                         <div class="col mr-2">
                                             <h6 class="font-weight-bold text-info mb-1 centered">Saturday</h6>
                                             <h6 class="font-weight-bold text-info mb-1 centered"><?= $weekdayDates[5] ?></h6>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $SaturdayM ?></div>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $SaturdayA ?></div>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $SaturdayE ?></div>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $SaturdayWage ?>€</div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $saturdayMorning ?></div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $saturdayAfternoon ?></div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $saturdayEvening ?></div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $saturdayWage ?>€</div>
                                         </div>
                                     </div>
                                 </div>
@@ -119,10 +119,10 @@ include '../php/payslipsConnection.php';
                                         <div class="col mr-2">
                                             <h6 class="font-weight-bold text-info mb-1 centered">Sunday</h6>
                                             <h6 class="font-weight-bold text-info mb-1 centered"><?= $weekdayDates[6] ?></h6>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $SundayM ?></div>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $SundayA ?></div>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $SundayE ?></div>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $SundayWage ?>€</div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $sundayMorning ?></div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $sundayAfternoon ?></div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $sundayEvening ?></div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $sundayWage ?>€</div>
                                         </div>
                                     </div>
                                 </div>
@@ -134,10 +134,11 @@ include '../php/payslipsConnection.php';
         </div>
     </div>
 </div>
+
 <div class="payslips-container container-fluid">
     <div class="row">
         <div class="col">
-            <div class="card shadow mb-4">
+            <div class="card shadow">
                 <div class="card-header py-3 flex justify-content-between">
                     <h5 class="m-0 font-weight-bold text-info">Weekly payslip</h5>
                 </div>
