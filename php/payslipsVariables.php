@@ -3,7 +3,7 @@
 $NUMBER_OF_WEEKDAYS = 7;
 $INTERVAL_BETWEEN_DAYS = 86400;
 $SHIFT_DURATION = 4;
-$MORNING_SHIFT = '9:00-14:00';
+$MORNING_SHIFT = '9:00 - 14:00';
 $AFTERNOON_SHIFT = '14:00 - 19:00';
 $EVENING_SHIFT = '19:00 - 23:00';
 
@@ -13,8 +13,9 @@ $EVENING = 'evening';
 
 $days = [];
 $weekdayDates = [];
-$countShifts = 0;
 $weekdayShifts = [];
+$countShifts = 0;
+
 
 $mondayWage = 0;
 $mondayMorning = '-';
