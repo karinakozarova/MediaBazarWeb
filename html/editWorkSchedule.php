@@ -4,12 +4,13 @@ $addEditSchedule = true;
 include('head.php');
 include('../php/constants.php');
 include('../php/config.php');
-include('../php/assignshifts.php');
+include('../php/assignShifts.php');
 include('../php/preSelectCheckbox.php');
 ?>
 
 <body>
 <?php include('navbar.php'); ?>
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
   <div class="container">
           <h2 class="mb-3 sked-tape__center centered"> Change working days:</h2>
           <?php if (isset($_POST["assignShifts_bttn"]) && !empty($errorMessageText)) { ?>
