@@ -10,5 +10,5 @@ foreach ($cContract as $element) {
     $curcontract->currentWage = $element["currentWage"];
     $curcontract->contractStart = date('jS F Y', strtotime($element["contractStart"]));
 
-    array_push($currentContract,$curcontract);
+    array_push($currentContract, $curcontract);
 }

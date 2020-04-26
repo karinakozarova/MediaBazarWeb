@@ -18,5 +18,5 @@ foreach ($listingContract as $element) {
     $contract->contract_end = date('jS F Y', strtotime($element["contract_end"]));
     $contract->contract_hourlywage = $element["contract_hourlywage"];
 
-    array_push($listContracts,$contract);
+    array_push($listContracts, $contract);
 }

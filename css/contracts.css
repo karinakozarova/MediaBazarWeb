@@ -1,31 +1,22 @@
-html {
-    min-height: 100%
-}
-
-body {
-    height: 100%
-}
-
 .container-fluid.contract-Container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }
 
 .panel {
-  width :60%;
-  margin: 1rem;
+    width: 80%;
+    margin: 1rem;
+}
+
+.panel-body {
+    padding: 1px;
 }
 
 .shadow {
-    box-shadow: 0 .15rem 1.75rem 0 rgba(58, 59, 69, .15) !important
-}
-
-.text-primary {
-    color: #858585 !important;
-    font-size:25px;
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58, 59, 69, .15) !important;
 }
 
 .container, .container-fluid {
@@ -34,26 +25,29 @@ body {
 }
 
 .previousCards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .curContracts {
-  text-align: center;
-  font-size: 20px;
+    text-align: center;
 }
 
 .boldInfo {
-  color : #1CC88A;
-  font-weight: bold;
-}
-
-.noContracts {
-  color: #E4E6E6;
+    color: #1CC88A !important;
+    font-weight: bold;
 }
 
 .marginspace {
-  margin: 1rem;
-  width: 30rem;
+    margin: 1rem;
+    width: 30rem;
+}
+
+hr{
+    margin: 1rem !important;
+}
+
+.card-body{
+    padding-bottom: 0 !important;
 }
