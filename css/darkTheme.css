@@ -1,11 +1,11 @@
 @media (prefers-color-scheme: dark) {
     body,button, .navbar, canvas, div, .card-header, .panel, .panel-footer,.table, .tableHeader, li, .dropdown, .container, ul, .dropdown-menu, .dropdown-menu>li>a, .navbar-default .navbar-nav>li>a,.navbar-default .navbar-nav>li>a:hover, .dropdown-menu>li>a:hover {
-        background-color: black !important;
+        background-color:  #2f303a !important;
         color: white;
     }
 
     .sked-tape__location, .sked-tape__date:nth-child(odd), .sked-tape__caption, .sked-tape__location:not(:last-child) {
-        background-color: black !important;
+        background-color: #2f303a !important;
         color: white !important;
     }
 
