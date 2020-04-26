@@ -1,0 +1,53 @@
+.container-fluid.contract-Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.panel {
+    width: 80%;
+    margin: 1rem;
+}
+
+.panel-body {
+    padding: 1px;
+}
+
+.shadow {
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58, 59, 69, .15) !important;
+}
+
+.container, .container-fluid {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem
+}
+
+.previousCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.curContracts {
+    text-align: center;
+}
+
+.boldInfo {
+    color: #1CC88A !important;
+    font-weight: bold;
+}
+
+.marginspace {
+    margin: 1rem;
+    width: 30rem;
+}
+
+hr{
+    margin: 1rem !important;
+}
+
+.card-body{
+    padding-bottom: 0 !important;
+}
