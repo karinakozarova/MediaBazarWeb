@@ -6,7 +6,7 @@ body {
     height: 100%
 }
 
-.container-wrap {
+.container-fluid.contract-Container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,48 +15,18 @@ body {
 }
 
 .card {
-    width: 70%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid #e3e6f0;
-    border-radius: .35rem;
-}
-
-.card-header {
-    padding: .75rem 1.25rem;
-    margin-bottom: 0;
-    background-color: #f8f9fc;
-    border-bottom: 1px solid #e3e6f0z
+  width :60%;
+  margin: 1rem;
+  border: 1px solid #EFEFEF;
 }
 
 .shadow {
     box-shadow: 0 .15rem 1.75rem 0 rgba(58, 59, 69, .15) !important
 }
 
-.mb-4 {
-    margin-bottom: 1.5rem !important
-}
-
-.padded {
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important
-}
-
-.mb-0 {
-    margin-bottom: 0 !important
-}
-
-.font-weight-bold {
-    font-weight: 700 !important
-}
-
 .text-primary {
-    color: #4e73df !important
+    color: #4e73df !important;
+    font-size:25px;
 }
 
 .container, .container-fluid {
@@ -64,43 +34,27 @@ body {
     padding-right: 1.5rem
 }
 
-.card-body {
-    padding: 1rem;
-}
-
-.previousCards{
+.previousCards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.curContracts{
+.curContracts {
   text-align: center;
-  font-size: 30px;
+  font-size: 20px;
 }
 
-.prevContractCard {
-  border: 0em solid grey;
-  border-top: 0.5rem solid #4e73df;
-  width: 40rem;
-  height: auto;
-  box-shadow: 0 .15rem 1.75rem 0 rgba(58, 59, 69, .15);
-  margin: 0.5rem;
-  border-radius: 0.2rem
-  padding 0.5rem;
+.boldInfo {
+  color : #4e73df;
+  font-weight: bold;
 }
 
-.Cardtext {
-  font-size: 18px;
-  padding: 1rem;
-  text-align: center;
-}
-
-.curContracts hr{
-  border: 1px solid #4e73df;
-    border-radius: 20px;
-}
-
-.noContracts{
+.noContracts {
   color: #E4E6E6;
+}
+
+.marginspace {
+  margin: 1rem;
+  width: 23rem;
 }
