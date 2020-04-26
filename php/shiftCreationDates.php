@@ -6,4 +6,6 @@ $fetchedDates = $dateQuery->fetchColumn();
 $newWeek = false;
 $maxdate = $fetchedDates;
 
-if($fetchedDates == $NextSchedule) {$newWeek = true;}
+if ($fetchedDates == $NextSchedule) {
+    $newWeek = true;
+}

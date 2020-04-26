@@ -1,37 +1,37 @@
 .cover {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 }
 
 td, th {
-  width: 14rem;
-  height: 3.5rem;
-  border: 3px solid #DCDCDC;
-  text-align: center;
+    width: 14rem;
+    height: 3.5rem;
+    border: 3px solid #DCDCDC;
+    text-align: center;
 }
 
 
-td:hover{
-  background: #C4FFC9;
+td:hover {
+    background: #C4FFC9;
 }
 
 .tableHeader {
-  text-align: center;
-  font-style: normal;
-  background: #F0F0F0;
-  font-size: 13px;
+    text-align: center;
+    font-style: normal;
+    background: #F0F0F0;
+    font-size: 13px;
 }
 
-.greenBackground{
-background-color: #7DCF83;
-border: 2px solid #D5D5D5;
+.greenBackground {
+    background-color: #7DCF83;
+    border: 2px solid #D5D5D5;
 }
 
-tr > td > input[type=checkbox]{
-  opacity:0;
-  position:absolute;
+tr > td > input[type=checkbox] {
+    opacity: 0;
+    position: absolute;
 }
 
 input[type=submit] {
