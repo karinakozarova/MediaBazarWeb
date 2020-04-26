@@ -14,8 +14,8 @@ $listingContract = $querylist->fetchAll();
 foreach ($listingContract as $element) {
     $contract = new \stdClass();
 
-    $contract->contract_start = date('Y-m-d', strtotime($element["contract_start"]));
-    $contract->contract_end = date('Y-m-d', strtotime($element["contract_end"]));
+    $contract->contract_start = date('jS F Y', strtotime($element["contract_start"]));
+    $contract->contract_end = date('jS F Y', strtotime($element["contract_end"]));
     $contract->contract_hourlywage = $element["contract_hourlywage"];
 
     array_push($listContracts,$contract);

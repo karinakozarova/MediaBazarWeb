@@ -8,7 +8,7 @@ $cContract = $querycurrent->fetchAll();
 foreach ($cContract as $element) {
     $curcontract = new \stdClass();
     $curcontract->currentWage = $element["currentWage"];
-    $curcontract->contractStart = date('Y-m-d', strtotime($element["contractStart"]));
+    $curcontract->contractStart = date('jS F Y', strtotime($element["contractStart"]));
 
     array_push($currentContract,$curcontract);
 }

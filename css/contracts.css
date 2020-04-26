@@ -14,10 +14,9 @@ body {
   align-items: center;
 }
 
-.card {
+.panel {
   width :60%;
   margin: 1rem;
-  border: 1px solid #EFEFEF;
 }
 
 .shadow {
@@ -25,7 +24,7 @@ body {
 }
 
 .text-primary {
-    color: #4e73df !important;
+    color: #858585 !important;
     font-size:25px;
 }
 
@@ -46,7 +45,7 @@ body {
 }
 
 .boldInfo {
-  color : #4e73df;
+  color : #1CC88A;
   font-weight: bold;
 }
 
@@ -56,5 +55,5 @@ body {
 
 .marginspace {
   margin: 1rem;
-  width: 23rem;
+  width: 30rem;
 }
