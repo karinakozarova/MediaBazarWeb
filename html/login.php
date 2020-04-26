@@ -31,7 +31,7 @@ include '../php/loginLogic.php';
         <?php } ?>
         <form method="post">
             <input type="text" id="login" name="username" placeholder="Username">
-            <input type="text" id="password" name="password" placeholder="Password">
+            <input type="password" id="password" name="password" placeholder="Password">
             <input class="submit-button" type="submit" name="login_bttn" value="Log In">
         </form>
         <div id="formFooter">
