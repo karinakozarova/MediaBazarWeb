@@ -1,13 +1,15 @@
 $('input[type=checkbox]').each(function () {
-  if($(this).is(":checked")){
-      $(this).parent().addClass("greenBackground");
-  }
+    if($(this).is(":checked")){
+        $(this).parent().addClass("greenBackground");
+    }
 })
 
-$("input[type='checkbox']").change(function(){
-   if($(this).is(":checked")){
-       $(this).parent().addClass("greenBackground");
-   }else{
-       $(this).parent().removeClass("greenBackground");
-   }
+$("td").on('click', function() {
+    if($(this).find("input[type='checkbox']").is(":checked")){
+        $(this).find("input[type='checkbox']").prop('checked', false);
+        $(this).removeClass("greenBackground");
+    } else {
+        $(this).find("input[type='checkbox']").prop('checked', true);
+        $(this).addClass("greenBackground");
+    }
 })
