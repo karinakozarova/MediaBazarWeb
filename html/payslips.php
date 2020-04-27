@@ -21,11 +21,12 @@ include '../php/payslipsConnection.php';
                         <div class="col-5">
                             <form class="form-inline" name="payslipsForm" method="POST">
                                 <div class="form-group">
-                                    <select name="selectedWeek" id="mySelect" class="form-control">
-                                        <?php foreach ($previousWorkedWeeks as $week): ?>
+                                    <select name="selectedWeek" id="select-select-week" class="form-control">
+                                        <option selected value="<?= $getSelectedWeek ?>">--select--</option>
+                                        <?php foreach ($previousWorkedWeeks as $week) { ?>
                                             <option <?php if (isset($isSelected) && $isSelected == $week->startDate) echo "selected"; ?>
                                                     value="<?= $week->startDate ?>"><?= date("d/m/Y", strtotime($week->startDate)) ?>-<?= date("d/m/Y", strtotime($week->endDate)) ?></option>
-                                        <?php endforeach; ?>
+                                        <?php } ?>
                                     </select>
                                 </div>
                                 <div class="form-group">

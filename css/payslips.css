@@ -47,8 +47,8 @@
     width: 20rem;
 }
 
-#mySelect {
-    width: 20rem;
+#select-select-week {
+    width: 23rem;
 }
 
 @media (max-width: 768px) {
