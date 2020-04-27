@@ -12,7 +12,33 @@ include '../php/payslipsConnection.php';
         <div class="col">
             <div class="card shadow">
                 <div class="card-header py-3 flex justify-content-between">
-                    <h5 class="m-0 font-weight-bold text-info">Weekdays</h5>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group mb-2">
+                                <h5 class="m-0 font-weight-bold text-info">Weekdays</h5>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <form class="form-inline" name="payslipsForm" method="POST">
+                                <div class="form-group">
+                                    <select name="selectedWeek" id="select-select-week" class="form-control">
+                                        <option selected value="<?= $getSelectedWeek ?>">--select--</option>
+                                        <?php foreach ($previousWorkedWeeks as $week) { ?>
+                                            <option <?php if (isset($isSelected) && $isSelected == $week->startDate) echo "selected"; ?>
+                                                    value="<?= $week->startDate ?>"><?= date("d/m/Y", strtotime($week->startDate)) ?>-<?= date("d/m/Y", strtotime($week->endDate)) ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-light mb-2 btn-block" id="btn-select-week"
+                                            name="select-week">
+                                        Show Selected Week
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col"></div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -89,7 +115,7 @@ include '../php/payslipsConnection.php';
                                             <h6 class="font-weight-bold text-info mb-1 centered"><?= $weekdayDates[4] ?></h6>
                                             <div class="h6 mb-0 font-weight-bold centered"><?= $fridayMorning ?></div>
                                             <div class="h6 mb-0 font-weight-bold centered"><?= $fridayAfternoon ?></div>
-                                            <div class="h6 mb-0 font-weight-bold centered"><?= $fridayEvening  ?></div>
+                                            <div class="h6 mb-0 font-weight-bold centered"><?= $fridayEvening ?></div>
                                             <div class="h6 mb-0 font-weight-bold centered"><?= $fridayWage ?>€</div>
                                         </div>
                                     </div>
@@ -134,7 +160,6 @@ include '../php/payslipsConnection.php';
         </div>
     </div>
 </div>
-
 <div class="payslips-container container-fluid">
     <div class="row">
         <div class="col">
@@ -241,5 +266,6 @@ include '../php/payslipsConnection.php';
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="../js/earningsChart.js"></script>
+<script src="../js/payslips.js"></script>
 </body>
 </html>

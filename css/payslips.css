@@ -4,6 +4,7 @@
     padding-left: .75rem;
     margin-right: auto;
     margin-left: auto;
+    margin-top: 2rem;
 }
 
 .container-fluid.payslips-container {
@@ -42,6 +43,14 @@
     max-width: 100%;
 }
 
+#btn-select-week {
+    width: 20rem;
+}
+
+#select-select-week {
+    width: 23rem;
+}
+
 @media (max-width: 768px) {
     .container-fluid.payslips-container {
         width: 38rem;
@@ -49,6 +58,12 @@
 
     .container-fluid.week-container {
         width: 38rem;
+    }
+    .week-container h5 {
+        margin-left: 13rem;
+    }
+    .form-inline{
+        margin-left: 7rem;
     }
 }
 

@@ -2,9 +2,15 @@
 include('payslipsVariables.php');
 include('../php/shifts.php');
 
-$getHourlyWageQuery = $conn->prepare("SELECT hourly_wage FROM employee_details WHERE person_id=\"$user_id\"");
+$getHourlyWageQuery = $conn->prepare("SELECT contract_hourlywage FROM  contract WHERE person_id=\"$user_id\" AND \"$getSelectedWeek\" between contract_start AND contract_end");
 $getHourlyWageQuery->execute();
 $hourlyWage = $getHourlyWageQuery->fetchColumn();
+
+if($hourlyWage == null){
+    $getHourlyWageQuery = $conn->prepare("SELECT contract_hourlywage FROM  contract WHERE person_id=\"$user_id\" AND contract_status = 0");
+    $getHourlyWageQuery->execute();
+    $hourlyWage = $getHourlyWageQuery->fetchColumn();
+}
 
 $shiftCost = $hourlyWage * $SHIFT_DURATION;
 $hoursCovered = count($days) * $SHIFT_DURATION;
@@ -99,7 +105,35 @@ foreach ($days as $day) {
     }
 }
 
-$date = date("Y-m-d");
+
+$getAllWorkedWeeksQuery = $conn->prepare("SELECT assigned_date FROM employee_working_days WHERE employee_id=\"$user_id\"");
+$getAllWorkedWeeksQuery->execute();
+$workedWeeksMondays = $getAllWorkedWeeksQuery->fetchAll();
+
+foreach ($workedWeeksMondays as $workedWeek) {
+    $workedWeekMonday = $workedWeek["assigned_date"];
+    if ($workedWeekMonday !=$previousWeekDate){
+        $date = $workedWeekMonday;
+    $timeSet = strtotime($date);
+    $dateOfTheWeek = date('w', $timeSet);
+    $offset = $dateOfTheWeek - 1;
+
+    if ($offset < 0) {
+        $offset = 6;
+    }
+    $timeSet = $timeSet - $offset * $INTERVAL_BETWEEN_DAYS;
+    $endDate = $timeSet + $INTERVAL_BETWEEN_DAYS * 6;
+
+    $week = new \stdClass();
+
+    $week->startDate = date("Y/m/d", $timeSet);
+    $week->endDate = date("Y/m/d", $endDate);
+    array_push($previousWorkedWeeks, $week);
+        $previousWeekDate = $workedWeekMonday;
+}
+}
+
+$date = $getSelectedWeek;
 $timeSet = strtotime($date);
 $dateOfTheWeek = date('w', $timeSet);
 $offset = $dateOfTheWeek - 1;
@@ -113,3 +147,4 @@ $timeSet = $timeSet - $offset * $INTERVAL_BETWEEN_DAYS;
 for ($i = 0; $i < $NUMBER_OF_WEEKDAYS; $i++, $timeSet += $INTERVAL_BETWEEN_DAYS) {
     array_push($weekdayDates, date("d/m/Y", $timeSet));
 }
+

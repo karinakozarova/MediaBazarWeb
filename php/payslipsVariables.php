@@ -11,11 +11,19 @@ $MORNING = 'morning';
 $AFTERNOON = 'afternoon';
 $EVENING = 'evening';
 
+$previousWorkedWeeks = [];
 $days = [];
 $weekdayDates = [];
 $weekdayShifts = [];
-$countShifts = 0;
 
+if (isset($_POST['selectedWeek'])) {
+    $isSelected = $_POST['selectedWeek'];
+}
+
+$countShifts = 0;
+$previousWeekDate = 0;
+$isWeekSelected = false;
+$getSelectedWeek = date("Y-m-d");
 
 $mondayWage = 0;
 $mondayMorning = '-';
