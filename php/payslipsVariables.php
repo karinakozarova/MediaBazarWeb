@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set("Europe/Amsterdam");
 
 $NUMBER_OF_WEEKDAYS = 7;
 $INTERVAL_BETWEEN_DAYS = 86400;
