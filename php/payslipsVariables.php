@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set("Europe/Amsterdam");
 
 date_default_timezone_set("Europe/Amsterdam");
 $NUMBER_OF_WEEKDAYS = 7;
