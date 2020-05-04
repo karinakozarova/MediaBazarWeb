@@ -1,7 +1,6 @@
 <?php
 
 include('payslipsVariables.php');
-date_default_timezone_set("Europe/Amsterdam");
 
 if (isset($_POST['select-week'])) {
     $getSelectedWeek = $_POST['selectedWeek'];
