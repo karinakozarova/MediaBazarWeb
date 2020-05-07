@@ -2,6 +2,23 @@
 include('payslipsVariables.php');
 include('../php/shifts.php');
 
+if (isset($_POST['select-week'])) {
+    $getSelectedWeek = $_POST['selectedWeek'];
+}
+
+$payslipDaysQuery = $conn->prepare("SELECT week_day_id as day, shift FROM employee_working_days WHERE employee_id=\"$user_id\" AND assigned_date = \"$getSelectedWeek\"");
+$payslipDaysQuery ->execute();
+$elements = $payslipDaysQuery ->fetchAll();
+
+foreach ($elements as $element) {
+    $shift = new \stdClass();
+
+    $shift->location = $element["day"];
+    $shift->shift = $element["shift"];
+
+    array_push($payslipDays, $shift);
+}
+
 $getHourlyWageQuery = $conn->prepare("SELECT contract_hourlywage FROM  contract WHERE person_id=\"$user_id\" AND \"$getSelectedWeek\" between contract_start AND contract_end");
 $getHourlyWageQuery->execute();
 $hourlyWage = $getHourlyWageQuery->fetchColumn();
@@ -16,9 +33,9 @@ $shiftCost = $hourlyWage * $SHIFT_DURATION;
 $hoursCovered = count($days) * $SHIFT_DURATION;
 $income = $hoursCovered * $hourlyWage;
 
-foreach ($days as $day) {
-   $shift = $day->shift;
-   $day = $day->location;
+foreach ($payslipDays as $day) {
+    $shift = $day->shift;
+    $day = $day->location;
     switch ($day) {
         case 0:
             if ($shift == $MORNING) {
@@ -114,23 +131,23 @@ foreach ($workedWeeksMondays as $workedWeek) {
     $workedWeekMonday = $workedWeek["assigned_date"];
     if ($workedWeekMonday !=$previousWeekDate){
         $date = $workedWeekMonday;
-    $timeSet = strtotime($date);
-    $dateOfTheWeek = date('w', $timeSet);
-    $offset = $dateOfTheWeek - 1;
+        $timeSet = strtotime($date);
+        $dateOfTheWeek = date('w', $timeSet);
+        $offset = $dateOfTheWeek - 1;
 
-    if ($offset < 0) {
-        $offset = 6;
-    }
-    $timeSet = $timeSet - $offset * $INTERVAL_BETWEEN_DAYS;
-    $endDate = $timeSet + $INTERVAL_BETWEEN_DAYS * 6;
+        if ($offset < 0) {
+            $offset = 6;
+        }
+        $timeSet = $timeSet - $offset * $INTERVAL_BETWEEN_DAYS;
+        $endDate = $timeSet + $INTERVAL_BETWEEN_DAYS * 6;
 
-    $week = new \stdClass();
+        $week = new \stdClass();
 
-    $week->startDate = date("Y/m/d", $timeSet);
-    $week->endDate = date("Y/m/d", $endDate);
-    array_push($previousWorkedWeeks, $week);
+        $week->startDate = date("Y/m/d", $timeSet);
+        $week->endDate = date("Y/m/d", $endDate);
+        array_push($previousWorkedWeeks, $week);
         $previousWeekDate = $workedWeekMonday;
-}
+    }
 }
 
 $date = $getSelectedWeek;
@@ -147,4 +164,3 @@ $timeSet = $timeSet - $offset * $INTERVAL_BETWEEN_DAYS;
 for ($i = 0; $i < $NUMBER_OF_WEEKDAYS; $i++, $timeSet += $INTERVAL_BETWEEN_DAYS) {
     array_push($weekdayDates, date("d/m/Y", $timeSet));
 }
-

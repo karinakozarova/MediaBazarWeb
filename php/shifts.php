@@ -2,12 +2,6 @@
 
 include('payslipsVariables.php');
 
-if (isset($_POST['select-week'])) {
-    $getSelectedWeek = $_POST['selectedWeek'];
-}
-
-$currentSchedule = $getSelectedWeek;
-
 $user = $_SESSION['username'];
 $user_id_query = $conn->prepare("SELECT account_id FROM user WHERE username=\"$user\"");
 $user_id_query->execute();
