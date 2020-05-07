@@ -7,7 +7,6 @@ include '../php/payslipsConnection.php';
 <body>
 <?php include('navbar.php'); ?>
 <link rel="stylesheet" href="../css/payslips.css">
-
 <div class="html-content">
     <div class="week-container container-fluid">
         <div class="row">
@@ -21,22 +20,15 @@ include '../php/payslipsConnection.php';
                                 </div>
                             </div>
                             <div class="col-5">
-                                <form class="form-inline" name="payslipsForm" method="POST">
+                                <form class="form-inline" id="payslips-form" name="payslipsForm" method="POST">
                                     <div class="form-group">
-                                        <select name="selectedWeek" id="select-select-week" class="form-control">
+                                        <select name="selectedWeek" id="select-select-week" class="form-control" onchange="this.form.submit();">
                                             <option selected value="<?= $getSelectedWeek ?>">--select--</option>
                                             <?php foreach ($previousWorkedWeeks as $week) { ?>
                                                 <option <?php if (isset($isSelected) && $isSelected == $week->startDate) echo "selected"; ?>
-                                                        value="<?= $week->startDate ?>"><?= date("d/m/Y", strtotime($week->startDate)) ?>
-                                                    -<?= date("d/m/Y", strtotime($week->endDate)) ?></option>
+                                                        value="<?= $week->startDate ?>"><?= date("d/m/Y", strtotime($week->startDate)) ?>-<?= date("d/m/Y", strtotime($week->endDate)) ?></option>
                                             <?php } ?>
                                         </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-light mb-2 btn-block" id="btn-select-week"
-                                                name="select-week">
-                                            Show Selected Week
-                                        </button>
                                     </div>
                                     <div class="form-group">
                                         <a class="btn btn-light mb-2 btn-block light-background downloadPDF"
@@ -280,10 +272,9 @@ include '../php/payslipsConnection.php';
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-<script src="../js/earningsChart.js"></script>
-<script src="../js/payslips.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
 <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+<script src="../js/payslips.js"></script>
 <script src="../js/payslipsPDF.js"></script>
 </body>
 </html>

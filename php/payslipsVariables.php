@@ -1,6 +1,6 @@
 <?php
-date_default_timezone_set("Europe/Amsterdam");
 
+date_default_timezone_set("Europe/Amsterdam");
 $NUMBER_OF_WEEKDAYS = 7;
 $INTERVAL_BETWEEN_DAYS = 86400;
 $SHIFT_DURATION = 4;
@@ -14,17 +14,19 @@ $EVENING = 'evening';
 
 $previousWorkedWeeks = [];
 $days = [];
+$payslipDays = [];
 $weekdayDates = [];
 $weekdayShifts = [];
-
-if (isset($_POST['selectedWeek'])) {
-    $isSelected = $_POST['selectedWeek'];
-}
-
 $countShifts = 0;
 $previousWeekDate = 0;
 $isWeekSelected = false;
 $getSelectedWeek = date("Y-m-d");
+$currentSchedule = date('Y-m-d', strtotime("last Monday"));
+
+if (isset($_POST['selectedWeek'])) {
+    $isSelected = $_POST['selectedWeek'];
+    $getSelectedWeek = $_POST['selectedWeek'];
+}
 
 $mondayWage = 0;
 $mondayMorning = '-';

@@ -1,13 +1,6 @@
 <?php
 
 include('payslipsVariables.php');
-date_default_timezone_set("Europe/Amsterdam");
-
-if (isset($_POST['select-week'])) {
-    $getSelectedWeek = $_POST['selectedWeek'];
-}
-
-$currentSchedule = $getSelectedWeek;
 
 $user = $_SESSION['username'];
 $user_id_query = $conn->prepare("SELECT account_id FROM user WHERE username=\"$user\"");
