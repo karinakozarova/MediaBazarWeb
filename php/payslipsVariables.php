@@ -28,6 +28,11 @@ if (isset($_POST['selectedWeek'])) {
     $getSelectedWeek = $_POST['selectedWeek'];
 }
 
+if (isset($_POST['selectedWeek'])) {
+    $isSelected = $_POST['selectedWeek'];
+    $getSelectedWeek = $_POST['selectedWeek'];
+}
+
 $mondayWage = 0;
 $mondayMorning = '-';
 $mondayAfternoon = '-';
