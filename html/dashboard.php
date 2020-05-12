@@ -1,5 +1,8 @@
 <?php $title = 'MediaBazar'; ?>
-<?php include('head.php'); ?>
+<?php
+include('head.php');
+include('../php/autoUpdateSchedule.php');
+?>
 <body>
 <?php include('navbar.php'); ?>
 <link rel="stylesheet" href="../css/dashboard.css">
