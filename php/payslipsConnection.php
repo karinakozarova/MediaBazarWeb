@@ -30,7 +30,7 @@ if($hourlyWage == null){
 }
 
 $shiftCost = $hourlyWage * $SHIFT_DURATION;
-$hoursCovered = count($days) * $SHIFT_DURATION;
+$hoursCovered = count($payslipDays) * $SHIFT_DURATION;
 $income = $hoursCovered * $hourlyWage;
 
 foreach ($payslipDays as $day) {
