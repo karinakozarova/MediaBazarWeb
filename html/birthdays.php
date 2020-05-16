@@ -4,118 +4,25 @@ include('head.php');
 ?>
 <body>
 <?php include('navbar.php'); ?>
+<?php include('../php/getMonthlyBirthdays.php'); ?>
 <link rel="stylesheet" href="../css/birtdays.css">
-<h2 class="centered gradient-text">This month's birthdays <i class="fas fa-birthday-cake"></i> </h2>
 
 <ul class="cards">
+    <?php for($count = 0; $count < count($names); $count++) {
+        $bday = $bdays[$count];
+        $bdayDate = date('Y-m-d',strtotime($bday));
+        $shouldHide = $bdayDate > date('Y-m-d') ? false : true;
+        ?>
         <li class="cards_item">
             <div class="card">
-                <div class="card_content">
-                    <h2 class="card_title">Klark Kent </h2>
-                    <h5 class="card_title">(06th October) </h5>
-                    <p class="card_text">Works at Gardening </p>
+                <div class="card_content <?= $shouldHide ? "faded" : ""?>">
+                    <h2 class="card_title"><?= $names[$count]?> </h2>
+                    <h5 class="card_title">(<?= $bday ?>) </h5>
+                    <p class="card_text">Works at <?= $departments[$count]?> </p>
                 </div>
             </div>
         </li>
-        <li class="cards_item">
-            <div class="card">
-                <div class="card_content">
-                    <h2 class="card_title">Klark Kent </h2>
-                    <h5 class="card_title">(06th October) </h5>
-                    <p class="card_text">Works at Gardening </p>
-                </div>
-            </div>
-        </li>
-        <li class="cards_item">
-            <div class="card">
-                <div class="card_content">
-                    <h2 class="card_title">Klark Kent </h2>
-                    <h5 class="card_title">(06th October) </h5>
-                    <p class="card_text">Works at Gardening </p>
-                </div>
-            </div>
-        </li>
-        <li class="cards_item">
-            <div class="card">
-                <div class="card_content">
-                    <h2 class="card_title">Klark Kent </h2>
-                    <h5 class="card_title">(06th October) </h5>
-                    <p class="card_text">Works at Gardening </p>
-                </div>
-            </div>
-        </li>
-        <li class="cards_item">
-            <div class="card">
-                <div class="card_content">
-                    <h2 class="card_title">Klark Kent </h2>
-                    <h5 class="card_title">(06th October) </h5>
-                    <p class="card_text">Works at Gardening </p>
-                </div>
-            </div>
-        </li>
-        <li class="cards_item">
-            <div class="card">
-                <div class="card_content">
-                    <h2 class="card_title">Klark Kent </h2>
-                    <h5 class="card_title">(06th October) </h5>
-                    <p class="card_text">Works at Gardening </p>
-                </div>
-            </div>
-        </li>
-        <li class="cards_item">
-            <div class="card">
-                <div class="card_content">
-                    <h2 class="card_title">Klark Kent </h2>
-                    <h5 class="card_title">(06th October) </h5>
-                    <p class="card_text">Works at Gardening </p>
-                </div>
-            </div>
-        </li><li class="cards_item">
-            <div class="card">
-                <div class="card_content">
-                    <h2 class="card_title">Klark Kent </h2>
-                    <h5 class="card_title">(06th October) </h5>
-                    <p class="card_text">Works at Gardening </p>
-                </div>
-            </div>
-        </li><li class="cards_item">
-            <div class="card">
-                <div class="card_content">
-                    <h2 class="card_title">Klark Kent </h2>
-                    <h5 class="card_title">(06th October) </h5>
-                    <p class="card_text">Works at Gardening </p>
-                </div>
-            </div>
-        </li>
-        <li class="cards_item">
-            <div class="card">
-                <div class="card_content">
-                    <h2 class="card_title">Klark Kent </h2>
-                    <h5 class="card_title">(06th October) </h5>
-                    <p class="card_text">Works at Gardening </p>
-                </div>
-            </div>
-        </li><li class="cards_item">
-            <div class="card">
-                <div class="card_content">
-                    <h2 class="card_title">Klark Kent </h2>
-                    <h5 class="card_title">(06th October) </h5>
-                    <p class="card_text">Works at Gardening </p>
-                </div>
-            </div>
-        </li>
-        <li class="cards_item">
-            <div class="card">
-                <div class="card_content">
-                    <h2 class="card_title">Klark Kent </h2>
-                    <h5 class="card_title">(06th October) </h5>
-                    <p class="card_text">Works at Gardening </p>
-                </div>
-            </div>
-        </li>
-
-
-
+    <?php } ?>
     </ul>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
