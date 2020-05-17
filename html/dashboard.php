@@ -2,6 +2,7 @@
 <?php
 include('head.php');
 include('../php/autoUpdateSchedule.php');
+include('../php/accessControl.php');
 ?>
 <body>
 <?php include('navbar.php'); ?>
