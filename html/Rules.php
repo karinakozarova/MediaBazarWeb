@@ -11,12 +11,11 @@ include '../php/rulesList.php';
 <div class="cover">
     <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Rules and regulations</h3>
+            <h3 class="panel-title">Rules and regulations</h3>
         </div>
         <div class="panel-body">
-          <p>Please go through the rules and regualtions below, going againts our policy would not be tolirated</p>
-        <ul class="rule">
-        </ul>
+            <p>Please go through the rules and regualtions below, going againts our policy would not be tolirated</p>
+            <ul class="rule"></ul>
         </div>
     </div>
 </div>
