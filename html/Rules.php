@@ -14,7 +14,7 @@ include '../php/rulesList.php';
             <h3 class="panel-title">Rules and regulations</h3>
         </div>
         <div class="panel-body">
-            <p>Please go through the rules and regualtions below, going againts our policy would not be tolirated</p>
+            <p>Please go through the rules and regualtions below:</p>
             <ul class="rule"></ul>
         </div>
     </div>
