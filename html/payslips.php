@@ -1,5 +1,6 @@
 <?php $title = 'Payslips'; ?>
 <?php include('head.php');
+include('../php/accessControl.php');
 include '../php/constants.php';
 include '../php/config.php';
 include '../php/payslipsConnection.php';

@@ -18,20 +18,37 @@ if (isset($_SESSION["username"])) {
             $errorMessageText = 'Please fill in the empty fields';
         } else {
             $query = "SELECT * FROM user WHERE username = '$username' AND password = '$password' AND account_type = $WORKER_TYPE";
-            $statment = $conn->prepare($query);
-            $statment->execute(
+            $loginQueryWorker = $conn->prepare($query);
+            $loginQueryWorker->execute(
                 array(
                     'username' => $username,
                     'password' => $password
                 )
             );
-            $count = $statment->rowCount();
+            $count = $loginQueryWorker->rowCount();
             if ($count > 0) {
                 $_SESSION["username"] = $_POST["username"];
                 $_SESSION["loginTime"] = time();
+                $_SESSION["account_type"] = $WORKER_TYPE;
                 header("Location: ../html/dashboard.php");
             } else {
-                $errorMessageText = 'Wrong credentials';
+                $query = "SELECT * FROM user WHERE username = '$username' AND password = '$password';";
+                $loginQuery = $conn->prepare($query);
+                $loginQuery->execute(
+                    array(
+                        'username' => $username,
+                        'password' => $password
+                    )
+                );
+                $count = $loginQuery->rowCount();
+                if ($count > 0) {
+                    $_SESSION["username"] = $_POST["username"];
+                    $_SESSION["loginTime"] = time();
+                    $_SESSION["account_type"] = "other";
+                    header("Location: ../html/events.php");
+                } else {
+                    $errorMessageText = 'Wrong credentials';
+                }
             }
         }
     }
