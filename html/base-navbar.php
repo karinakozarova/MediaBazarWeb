@@ -15,6 +15,7 @@
                 <li><a href="dashboard.php">Dashboard</a></li>
                 <li><a href="workerContracts.php">Contracts</a></li>
                 <li><a href="payslips.php">Payslips</a></li>
+                <li><a href="Rules.php">Rules</a></li>
                 <li><a href="/mediabazarweb/html/events.php">Events</a></li>
                 <li><a href="birthdays.php">Birthdays</a></li>
                 <li class="dropdown">

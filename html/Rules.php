@@ -24,6 +24,7 @@ include '../php/rulesList.php';
     var ruleslist = <?= json_encode($rules); ?>;
 </script>
 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../js/ruleListing.js"></script>
 </body>
 </html>
