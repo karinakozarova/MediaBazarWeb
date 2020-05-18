@@ -1,9 +1,11 @@
-<?php $title = 'Rules';
+<?php
+$title = 'Rules';
 include('head.php');
 include '../php/constants.php';
 include '../php/config.php';
 include '../php/rulesList.php';
 ?>
+
 <body>
 <?php include('navbar.php'); ?>
 <link rel="stylesheet" href="../css/rules.css">
