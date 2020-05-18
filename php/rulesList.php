@@ -6,9 +6,5 @@ $querylist->execute();
 $listingRules = $querylist->fetchAll();
 
 foreach ($listingRules as $element) {
-    $rule = new \stdClass();
-
-    $rule->description = $element["Description"];
-
-    array_push($rules, $rule);
+    array_push($rules, $element["Description"]);
 }

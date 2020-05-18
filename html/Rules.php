@@ -1,5 +1,5 @@
-<?php $title = 'Rules'; ?>
-<?php include('head.php');
+<?php $title = 'Rules';
+include('head.php');
 include '../php/constants.php';
 include '../php/config.php';
 include '../php/rulesList.php';
@@ -21,7 +21,7 @@ include '../php/rulesList.php';
 </div>
 
 <script type="text/javascript">
-    var ruleslist = <?php echo json_encode($rules); ?>;
+    var ruleslist = <?= json_encode($rules); ?>;
 </script>
 
 <script type="text/javascript" src="../js/ruleListing.js"></script>
