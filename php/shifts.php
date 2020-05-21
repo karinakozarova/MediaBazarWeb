@@ -1,5 +1,4 @@
 <?php
-
 include('payslipsVariables.php');
 
 $user = $_SESSION['username'];

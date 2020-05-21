@@ -34,6 +34,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="changeProfileInformation.php">Change profile information</a></li>
                         <li><a href="changePassword.php">Change password</a></li>
+                        <li><a href="settings.php">Settings</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="../php/signout.php">Sign out </a></li>
                     </ul>
