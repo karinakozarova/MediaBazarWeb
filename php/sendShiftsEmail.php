@@ -23,7 +23,12 @@ $timer=date('Y:m:d h:i:s a', time());
 $currentDate = date("Y:m:d");
 
 
-$to_email = 'gminchev2000 @ gmail . com';
+$query = $conn->prepare("SELECT email FROM person WHERE id=\"$user_id\"");
+$query->execute();
+$userEmail = $query->fetchColumn();
+echo $userEmail;
+
+$to_email = $userEmail;
 $subject = 'Testing PHP Mail';
 $messageMorning = 'REMINDER: Your shift starts after 30min at 9:00.';
 $messageAfternoon = 'REMINDER: Your shift starts after 30min at 9:00.';
