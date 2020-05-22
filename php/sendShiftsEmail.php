@@ -1,8 +1,15 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php';
 
 include '../php/constants.php';
 include '../php/config.php';
 include 'shifts.php';
+
+$mail = new PHPMailer(true);
 
 $date = $currentSchedule;
 $timeSet = strtotime($date);
@@ -22,56 +29,71 @@ for ($i = 0; $i < $NUMBER_OF_WEEKDAYS; $i++, $timeSet += $INTERVAL_BETWEEN_DAYS)
 $timer=date('Y:m:d h:i:s a', time());
 $currentDate = date("Y:m:d");
 
-
 $query = $conn->prepare("SELECT email FROM person WHERE id=\"$user_id\"");
 $query->execute();
 $userEmail = $query->fetchColumn();
-echo $userEmail;
-
-$to_email = $userEmail;
-$subject = 'Testing PHP Mail';
-$messageMorning = 'REMINDER: Your shift starts after 30min at 9:00.';
-$messageAfternoon = 'REMINDER: Your shift starts after 30min at 9:00.';
-$messageEvening = 'REMINDER: Your shift starts after 30min at 9:00.';
-$headers = 'From: noreply @ mediabazar . com';
 
 
-if(isset($_REQUEST['sendEmail']) && $_REQUEST['sendEmail'] == 'on') {
-    echo "Oo Djadja";
-    foreach ($days as $day) {
-        $shift = $day->shift;
-        $day = $day->location;
-        foreach ($weekdayDates as $index => $weekdayDate) {
+if(isset($_POST['sendEmail_hidden'])){
 
-            if ($day == $index) {
-                if ($weekdayDate == $currentDate) {
+echo 'DOBRE';
 
-                    if ($shift == $MORNING) {
-                        $mytimer = $weekdayDate . " 08:30:00 pm";
-                        $mytimer2 = $weekdayDate . " 08:30:59 pm";
+    try {
 
-                        if ($timer >= $mytimer && $timer <= $mytimer2) {
-                            mail($to_email, $subject, $messageMorning, $headers);
-                        }
-                    } else if ($shift == $AFTERNOON) {
-                        $mytimer = $weekdayDate . " 01:30:00 pm";
-                        $mytimer2 = $weekdayDate . " 01:30:59 pm";
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.gmail.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'gminchev2000@gmail.com';
+        $mail->Password   = 'password';
+        $mail->Port       = 587;
+        $mail->setFrom('gminchev2000@gmail.com', 'Mailer');
+        $mail->addAddress('gminchev.nl@gmail.com', 'Joe User');     // Add a recipient
+        $mail->isHTML(true);
+        $mail->Subject = 'REMINDER: Your shift starts soon.';
 
-                        if ($timer >= $mytimer && $timer <= $mytimer2) {
-                            mail($to_email, $subject, $messageAfternoon, $headers);
-                        }
-                    } else if ($shift == $EVENING) {
-                        $mytimer = $weekdayDate . " 06:30:00 pm";
-                        $mytimer2 = $weekdayDate . " 06:30:59 pm";
-                        if ($timer >= $mytimer && $timer <= $mytimer2) {
-                            mail($to_email, $subject, $messageEvening, $headers);
+        foreach ($days as $day) {
+            $shift = $day->shift;
+            $day = $day->location;
+            foreach ($weekdayDates as $index => $weekdayDate) {
+
+                if ($day == $index) {
+                    if ($weekdayDate == $currentDate) {
+
+                        if ($shift == $MORNING) {
+                            $mytimer = $weekdayDate . " 08:30:00 pm";
+                            $mytimer2 = $weekdayDate . " 08:30:59 pm";
+
+                            if ($timer >= $mytimer && $timer <= $mytimer2) {
+                                $mail->Body    = 'REMINDER: Your shift starts after <b>30min at 9:00.</b>';
+                                $mail->send();
+                            }
+                        } else if ($shift == $AFTERNOON) {
+                            $mytimer = $weekdayDate . " 09:58:00 am";
+                            $mytimer2 = $weekdayDate . " 09:58:59 am";
+
+                            if ($timer >= $mytimer && $timer <= $mytimer2) {
+                                $mail->Body    = 'REMINDER: Your shift starts after <b>30min at 14:00.</b>';
+                                $mail->send();
+                            }
+                        } else if ($shift == $EVENING) {
+                            $mytimer = $weekdayDate . " 06:30:00 pm";
+                            $mytimer2 = $weekdayDate . " 06:30:59 pm";
+                            if ($timer >= $mytimer && $timer <= $mytimer2) {
+                                $mail->Body    = 'REMINDER: Your shift starts after <b>30min at 19:00.</b>';
+                                $mail->send();
+                            }
                         }
                     }
                 }
             }
         }
+
+        echo 'Message has been sent';
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
 }
+
 
 
 

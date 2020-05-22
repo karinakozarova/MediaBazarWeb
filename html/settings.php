@@ -2,7 +2,6 @@
 include('head.php');
 include '../php/constants.php';
 include '../php/config.php';
-include'../php/sendShiftsEmail.php';
 ?>
 <body>
 <?php include('navbar.php'); ?>
@@ -27,7 +26,7 @@ include'../php/sendShiftsEmail.php';
                             </form>
                         </div>
                         <div class="row">
-                            <form class="settings-form form-inline">
+                            <form class="settings-form-email form-inline"  method="POST" id="send-email-form">
                                 <div class="col-md-7">
                                     <h4>Send shift notifications by email</h4>
                                 </div>
@@ -37,6 +36,7 @@ include'../php/sendShiftsEmail.php';
                                         <span class="slider round"></span>
                                     </label>
                                 </div>
+                                <input type="hidden" id="sendEmail_hidden" name="sendEmail_hidden" value="on">
                             </form>
                         </div>
                         </div>

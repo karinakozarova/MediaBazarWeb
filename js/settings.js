@@ -33,26 +33,42 @@ $(document).ready(function() {
 }
 
 $(document).ready(function() {
-    var checkbox = document.getElementById("sendEmail");
-    checkbox.checked = true;
-    var sendEmail = 'on';
-    console.log(sendEmail);
 
     $('#sendEmail').change(function(){
-    if(!$(this).prop('checked')){
-        sendEmail = 'off';
-    }
-    else{
-        sendEmail = 'on';
-    }
-    console.log(sendEmail);
+        if(!$(this).prop('checked')){
+            localStorage.setItem('mail', 'off');
+        }
+        else{
+            localStorage.setItem('mail', 'on');
+        }
+        location.reload();
+    });
 
-    });
-    $.ajax({
-        url: '../php/sendShiftsEmail.php',
-        type: 'POST',
-        data:{"sendEmail": sendEmail},
-        success: function(result) {}
-    });
+    if(localStorage.getItem('mail') == 'on' ){
+
+        console.log("working");
+        var checkbox = document.getElementById("sendEmail");
+        var email= 'on';
+
+        window.setInterval(function () {
+            $.ajax({
+            url: '../php/sendShiftsEmail.php',
+            type: 'POST',
+            data:{"sendEmail_hidden": email},
+         success: function(result) {
+            console.log('sent');
+            },
+        error : function() {
+            console.log('error');
+            }
+         });
+        }, 60000);
+        checkbox.checked = true;
+    }
+    else if(localStorage.getItem('mail') == 'off' ){
+        console.log("not");
+
+        var checkbox = document.getElementById("sendEmail");
+        checkbox.checked = false;
+    }
 });
-

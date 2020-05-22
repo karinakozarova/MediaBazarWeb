@@ -8,6 +8,7 @@ if (isset($_SESSION["username"]) && (time() - $_SESSION["loginTime"] > 1800)) {
     header('Location: ../php/signout.php');
 }
 $_SESSION["loginTime"] = time();
+
 include '../php/sendShiftsEmail.php';
 ?>
 
@@ -38,5 +39,4 @@ include '../php/sendShiftsEmail.php';
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <script src="../js/settings.js"></script>
-    <script src="../js/sendShiftsEmail.js"></script>
 </head>
