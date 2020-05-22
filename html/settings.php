@@ -2,6 +2,7 @@
 include('head.php');
 include '../php/constants.php';
 include '../php/config.php';
+include '../php/sendShiftsEmail.php';
 ?>
 <body>
 <?php include('navbar.php'); ?>
@@ -9,7 +10,7 @@ include '../php/config.php';
 <br>
 <div class="container">
     <div class="row">
-            <div class="changeInfoForm form-group row col-md-offset-4 col-lg-offset-3 col-lg-6 col-xl-6">
+            <div class="changeInfoForm form-group row col-sm-6 col-md-offset-4 col-lg-offset-3 col-lg-6 col-xl-6">
                     <div class="form-group">
                         <h3 class="changeInfoLbl centered">Settings</h3>
                         <div class="row">
@@ -39,7 +40,7 @@ include '../php/config.php';
                                 <input type="hidden" id="sendEmail_hidden" name="sendEmail_hidden" value="on">
                             </form>
                         </div>
-                        </div>
+                    </div>
             </div>
     </div>
 </div>

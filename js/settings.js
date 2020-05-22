@@ -1,36 +1,39 @@
-$('#mode').change(function(){
-
-    if($(this).prop('checked')){
-        $('head').append('<link rel="stylesheet" type="text/css" href="../css/darkThemePreference.css">')
-        localStorage.setItem('mode', 'dark');
-    }
-    else{
-        $('link[rel=stylesheet][href*="../css/darkThemePreference.css"]').remove();
-        localStorage.setItem('mode', 'light');
-    }
-});
-
 $(document).ready(function() {
 
+    var theme = $('#getTheme_hidden').val();
     var checkbox = document.getElementById("mode");
 
-    if(localStorage.getItem('mode') == 'dark' ){
+    if(theme === 'dark' ){
         $('head').append('<link rel="stylesheet" type="text/css" href="../css/darkThemePreference.css">');
         checkbox.checked = true;
     }
-    else if(localStorage.getItem('mode') == 'light'){
+    else if(theme === 'light'){
         $('link[rel=stylesheet][href*="../css/darkThemePreference.css"]').remove();
         checkbox.checked = false;
     }
 });
 
-    if(window.matchMedia("(prefers-color-scheme: dark)").matches){
-    var checkbox = document.getElementById("mode");
-    if(!$(this).prop('checked')){
-        checkbox.checked=true;
-        $('head').append('<link rel="stylesheet" type="text/css" href="../css/darkThemePreference.css">');
+$('#mode').change(function(){
+
+    if($(this).prop('checked')){
+        theme = 'dark';
     }
-}
+    else{
+        theme = 'light';
+    }
+    $.ajax({
+        url: '../php/settingsConnection.php',
+        type: 'POST',
+        data:{"theme": theme},
+        success: function(result) {
+            console.log('sent theme');
+        },
+        error : function() {
+            console.log('error');
+        }
+    });
+    location.reload();
+});
 
 $(document).ready(function() {
 
@@ -43,11 +46,11 @@ $(document).ready(function() {
         }
         location.reload();
     });
-
+});
+$(document).ready(function() {
     if(localStorage.getItem('mail') == 'on' ){
 
         console.log("working");
-        var checkbox = document.getElementById("sendEmail");
         var email= 'on';
 
         window.setInterval(function () {
@@ -63,6 +66,7 @@ $(document).ready(function() {
             }
          });
         }, 60000);
+        var checkbox = document.getElementById("sendEmail");
         checkbox.checked = true;
     }
     else if(localStorage.getItem('mail') == 'off' ){

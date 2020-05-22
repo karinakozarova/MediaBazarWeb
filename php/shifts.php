@@ -1,7 +1,16 @@
 <?php
+
+if(!isset($_SESSION))
+{
+    session_start();
+}
+
+include '../php/constants.php';
+include '../php/config.php';
 include('payslipsVariables.php');
 
-$user = $_SESSION['username'];
+
+$user = $_SESSION["username"];
 $user_id_query = $conn->prepare("SELECT account_id FROM user WHERE username=\"$user\"");
 $user_id_query->execute();
 $user_id = $user_id_query->fetchColumn();

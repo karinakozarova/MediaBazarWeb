@@ -1,6 +1,4 @@
 <?php
-include('../php/settingsConnection.php');
-
 session_start();
 if (isset($_SESSION["username"]) && (time() - $_SESSION["loginTime"] > 1800)) {
     session_unset();
@@ -9,7 +7,7 @@ if (isset($_SESSION["username"]) && (time() - $_SESSION["loginTime"] > 1800)) {
 }
 $_SESSION["loginTime"] = time();
 
-include '../php/sendShiftsEmail.php';
+include '../php/settingsConnection.php';
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +27,7 @@ include '../php/sendShiftsEmail.php';
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="../css/base.css">
+    <input type="hidden" id="getTheme_hidden" name="getTheme_hidden" value="<?php echo $getTheme ?>">
     <?php if (isset($addCalendar)) { ?>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <link rel="stylesheet" href="../libs/jquery-sked-tape-master/docs/jquery.skedTape.css">
