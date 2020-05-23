@@ -10,7 +10,7 @@
         color: white !important;
     }
 
-    button, #btn-change-pwd {
+    button, #btn-change-pwd, #btn-send-report {
         border-color: white;
     }
 }

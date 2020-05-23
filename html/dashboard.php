@@ -2,6 +2,7 @@
 <?php
 include('head.php');
 include('../php/autoUpdateSchedule.php');
+include('../php/accessControl.php');
 ?>
 <body>
 <?php include('navbar.php'); ?>
@@ -65,7 +66,16 @@ include('../php/autoUpdateSchedule.php');
                         <div class="col mr-2">
                             <h6 class="font-weight-bold text-warning mb-1">Pending Notifications
                             </h6>
-                            <div class="h4 mb-0 font-weight-bold">18</div>
+                            <div class="h4 mb-0 font-weight-bold">
+                                <p class="pending" id="pending"> </p>
+                                <script>
+                                    $(document).ready(function() {
+                                        setInterval(function() {
+                                            $('#pending').load('../php/countNotifications.php')
+                                        }, 500);
+                                    });
+                                </script>
+                            </div>
                         </div>
                     </div>
                 </div>

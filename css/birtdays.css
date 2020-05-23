@@ -1,0 +1,47 @@
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 5%;
+}
+
+.cards_item {
+    display: flex;
+    padding: 1rem;
+}
+
+.card {
+    border-radius: .7rem;
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, .50);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.card_content {
+    padding: 2rem;
+    background: linear-gradient(to bottom left, #7cef74 10%, #ffc39e 100%);
+}
+
+.faded {
+    background: #737584;
+}
+
+.card_title {
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.card_text {
+    color: #fff;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+    font-weight: 400;
+}
+
+.btn-half{
+    width: 49%;
+}

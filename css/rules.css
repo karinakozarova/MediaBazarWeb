@@ -1,0 +1,37 @@
+.cover {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+}
+
+.panel-title {
+  font-size: 30px;
+  color : grey;
+}
+
+.panel {
+  width: 70rem;
+}
+
+.panel-body p{
+  font-size: 20px;
+  color : grey;
+}
+
+ul li{
+  font-size: 16px;
+}
+
+ul {
+  margin: 1rem;
+}
+
+@media (max-width: 800px) {
+    .panel {
+        width: 90%;
+    }
+}

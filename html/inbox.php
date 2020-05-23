@@ -1,6 +1,7 @@
 <?php
 $title = "Inbox";
 include('head.php');
+include('../php/accessControl.php');
 include('../php/config.php');
 include('../php/notifications.php');
 ?>
