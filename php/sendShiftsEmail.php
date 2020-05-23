@@ -51,7 +51,7 @@ if(isset($_POST['sendEmail_hidden'])){
         $mail->Password   = 'MediaBazaar!Test123 ';
         $mail->Port       = 587;
         $mail->setFrom('MediaBazaarTest@gmail.com', 'Mediabazar REMINDER');
-        $mail->addAddress('gminchev.nl@gmail.com', 'Joe User');     // Add a recipient
+        $mail->addAddress('gminchev2000@gmail.com', 'Joe User');     // Add a recipient
         $mail->isHTML(true);
         $mail->Subject = 'REMINDER: Your shift starts soon.';
 

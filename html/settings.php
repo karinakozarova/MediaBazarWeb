@@ -22,38 +22,38 @@ include '../php/sendShiftsEmail.php';
                     </div>
                 </div>
                 <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-4"></div>
-                            <form class="settings-form form-inline" method="POST" id="dark-mode-form">
-                                <div class="form-group">
-                                    <h4 class="text-info">Dark Mode</h4>
-                                </div>
-                                <div class="switch-darkmode form-group">
-                                    <label id="switch" class="switch">
-                                        <input type="checkbox" data-toggle="toggle" name="mode" id="mode">
-                                        <span class="slider round"></span>
-                                    </label>
-                                </div>
-                            </form>
-                            <div class="col"></div>
-                        </div>
-                   <br><br><br>
-                        <div class="row">
-                            <div class="col-md-4"></div>
-                            <form class="settings-form-email form-inline"  method="POST" id="send-email-form">
-                                <div class="form-group">
-                                    <h4 class="text-info">Send shift notifications by email</h4>
-                                </div>
-                                <div class="switch-email form-group">
-                                    <label id="switch" class="switch">
-                                        <input type="checkbox" data-toggle="toggle" name="sendEmail" id="sendEmail">
-                                        <span class="slider round"></span>
-                                    </label>
-                                </div>
-                                <input type="hidden" id="sendEmail_hidden" name="sendEmail_hidden" value="on">
-                            </form>
-                            <div class="col"></div>
-                        </div>
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <form class="settings-form form-inline" method="POST" id="dark-mode-form">
+                            <div class="form-group">
+                                <h4 class="text-info">Dark Mode</h4>
+                            </div>
+                            <div class="switch-darkmode form-group">
+                                <label id="switch" class="switch">
+                                    <input type="checkbox" data-toggle="toggle" name="mode" id="mode">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </form>
+                        <div class="col"></div>
+                    </div>
+                    <br><br><br>
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <form class="settings-form-email form-inline" method="POST" id="send-email-form">
+                            <div class="form-group">
+                                <h4 class="text-info">Send shift notifications by email</h4>
+                            </div>
+                            <div class="switch-email form-group">
+                                <label id="switch" class="switch">
+                                    <input type="checkbox" data-toggle="toggle" name="sendEmail" id="sendEmail">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <input type="hidden" id="sendEmail_hidden" name="sendEmail_hidden" value="on">
+                        </form>
+                        <div class="col"></div>
+                    </div>
                     <br><br><br>
                 </div>
             </div>
