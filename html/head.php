@@ -6,6 +6,8 @@ if (isset($_SESSION["username"]) && (time() - $_SESSION["loginTime"] > 1800)) {
     header('Location: ../php/signout.php');
 }
 $_SESSION["loginTime"] = time();
+
+include '../php/settingsConnection.php';
 ?>
 
 <!DOCTYPE html>
@@ -25,9 +27,10 @@ $_SESSION["loginTime"] = time();
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/darkTheme.css">
 
+    <input type="hidden" id="getTheme_hidden" name="getTheme_hidden" value="<?php echo $getTheme ?>">
     <?php if (isset($addCalendar)) { ?>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <link rel="stylesheet" href="../libs/jquery-sked-tape-master/docs/jquery.skedTape.css">
         <script src="../libs/jquery-sked-tape-master/src/jquery.skedTape.js"></script>
@@ -36,4 +39,5 @@ $_SESSION["loginTime"] = time();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="../js/settings.js"></script>
 </head>

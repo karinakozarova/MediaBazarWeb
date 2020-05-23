@@ -1,6 +1,7 @@
 @media (prefers-color-scheme: dark) {
-    body,button, .navbar, canvas, div, .card-header, .panel, .panel-footer,.table, .tableHeader, li, .dropdown, .container, ul, .dropdown-menu, .dropdown-menu>li>a, .navbar-default .navbar-nav>li>a,.navbar-default .navbar-nav>li>a:hover, .dropdown-menu>li>a:hover {
-        background-color:  #2f303a !important;
+
+    body, button, .navbar, canvas, div, .card-header, .panel, .panel-footer, .table, .tableHeader, li, .dropdown, .container, ul, .dropdown-menu, .dropdown-menu > li > a, .navbar-default .navbar-nav > li > a, .navbar-default .navbar-nav > li > a:hover, .dropdown-menu > li > a:hover {
+        background-color: #2f303a !important;
         color: white;
     }
 
