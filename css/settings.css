@@ -40,7 +40,7 @@
 }
 
 input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #36b9cc;
 }
 
 input:focus + .slider {
@@ -59,4 +59,127 @@ input:checked + .slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+
+.container-fluid.week-container {
+    width: 70%;
+    padding-right: .75rem;
+    padding-left: .75rem;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2rem;
+}
+
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -.75rem;
+    margin-left: -.75rem;
+}
+
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0
+}
+
+.no-gutters > .col, .no-gutters > [class*=col-] {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.col, .col-auto, .col-md-6, .col-xl-3 {
+    position: relative;
+    width: 100%;
+    padding-right: .75rem;
+    padding-left: .75rem;
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+#btn-select-week {
+    width: 20rem;
+}
+
+#select-select-week {
+    width: 23rem;
+}
+
+@media (max-width: 768px) {
+
+    .container-fluid.week-container {
+        width: 38rem;
+    }
+    .week-container h5 {
+        margin-left: 13rem;
+    }
+    .form-inline{
+        margin-left: 7rem;
+    }
+    .switch-email{
+        padding-left:3rem;
+    }
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #e3e6f0;
+    border-radius: .35rem;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem
+}
+
+.card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: #f8f9fc;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+.shadow {
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58, 59, 69, .15) !important
+}
+
+.font-weight-bold {
+    font-weight: 700;
+}
+
+.text-info {
+    color: #36b9cc !important
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+.container, .container-fluid {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.light-background {
+    background-color: rgb(240, 240, 240) !important;
+}
+
+.switch-email{
+    margin-left:3rem;
+}
+.switch-darkmode{
+    margin-left:3rem;
 }
