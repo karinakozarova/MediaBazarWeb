@@ -38,6 +38,8 @@ include '../php/sendShiftsEmail.php';
                         <div class="col"></div>
                     </div>
                     <br><br><br>
+
+                    <?php if ($_SESSION["account_type"] == $WORKER_TYPE) { ?>
                     <div class="row">
                         <div class="col-md-4"></div>
                         <form class="settings-form-email form-inline" method="POST" id="send-email-form">
@@ -56,6 +58,7 @@ include '../php/sendShiftsEmail.php';
                     </div>
                     <br><br><br>
                 </div>
+                <?php } ?>
             </div>
         </div>
     </div>
