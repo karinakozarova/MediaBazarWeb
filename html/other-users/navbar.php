@@ -24,6 +24,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="/mediabazarweb/html/changeProfileInformation.php">Change profile information</a></li>
                         <li><a href="/mediabazarweb/html/changePassword.php">Change password</a></li>
+                        <li><a href="../html/settings.php">Settings</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="/mediabazarweb/php/signout.php">Sign out </a></li>
                     </ul>
